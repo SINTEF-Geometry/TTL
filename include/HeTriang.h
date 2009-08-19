@@ -37,8 +37,8 @@ namespace hed
     {
     public:
 	typedef typename NodeTraits::NodeType NodeType;
-	typedef HalfEdge<NodeType> Edge;
-	typedef Dart<NodeTraits> Dart;
+	typedef HalfEdge<NodeType> EdgeNode;
+	typedef Dart<NodeTraits> DartNode;
 
 	Triangulation() {}
 	/// The copy constructor makes new edges, but not new nodes.
@@ -60,12 +60,12 @@ namespace hed
 
 	/// When using rectangular boundary - loop through all points and expand.
 	/// (Called from createDelaunay(...) when starting)
-	Edge* initTwoEnclosingTriangles(typename std::vector< boost::shared_ptr<NodeType> >::iterator first,
+	EdgeNode* initTwoEnclosingTriangles(typename std::vector< boost::shared_ptr<NodeType> >::iterator first,
 					typename std::vector< boost::shared_ptr<NodeType> >::iterator last);
 
 	// These two functions are required by TTL for Delaunay triangulation
-	void swapEdge(Edge& diagonal);
-	Edge* splitTriangle(Edge& edge, NodeType& point)
+	void swapEdge(EdgeNode& diagonal);
+	EdgeNode* splitTriangle(EdgeNode& edge, NodeType& point)
 	{
    
 	// Add a node by just splitting a triangle into three triangles
@@ -82,20 +82,20 @@ namespace hed
 
 	//	NodeType* new_node = &point;
 	boost::shared_ptr<NodeType> n1 = edge.getSourceNode();
-	Edge* e1 = &edge;
+	EdgeNode* e1 = &edge;
   
-	Edge* e2 = edge.getNextEdgeInFace();
+	EdgeNode* e2 = edge.getNextEdgeInFace();
 	boost::shared_ptr<NodeType> n2 = e2->getSourceNode();
   
-	Edge* e3 = e2->getNextEdgeInFace();
+	EdgeNode* e3 = e2->getNextEdgeInFace();
 	boost::shared_ptr<NodeType> n3 = e3->getSourceNode();
   
-	Edge* e1_n  = new Edge;
-	Edge* e11_n = new Edge;
-	Edge* e2_n  = new Edge;
-	Edge* e22_n = new Edge;
-	Edge* e3_n  = new Edge;
-	Edge* e33_n = new Edge;
+	EdgeNode* e1_n  = new EdgeNode;
+	EdgeNode* e11_n = new EdgeNode;
+	EdgeNode* e2_n  = new EdgeNode;
+	EdgeNode* e22_n = new EdgeNode;
+	EdgeNode* e3_n  = new EdgeNode;
+	EdgeNode* e33_n = new EdgeNode;
   
 	e1_n->setSourceNode(n1);
 	e11_n->setSourceNode(new_node);
@@ -131,7 +131,7 @@ namespace hed
 	// NOTE: Must search in the list!!!
   
   
-	Edge* leadingEdge;
+	EdgeNode* leadingEdge;
 	if (e1->isLeadingEdge())
 	    leadingEdge = e1;
 	else if (e2->isLeadingEdge())
@@ -156,25 +156,25 @@ namespace hed
 	// Functions required by TTL for removing nodes in a Delaunay triangulation
 	/// @@ Seems to me that any triangle may be removed, but that the remaining
 	/// triangulation must be connected (not counting connection in nodes)...?
-	void removeTriangle(Edge& edge); // boundary triangle required    
-	void reverse_splitTriangle(Edge& edge);
+	void removeTriangle(EdgeNode& edge); // boundary triangle required    
+	void reverse_splitTriangle(EdgeNode& edge);
     
 	/// Create an arbitrary CCW dart
-	Dart createDart();
+	DartNode createDart();
 	/// Create an arbitrary CCW dart, that has no knowledge of this triangulation
-	Dart createFreeDart() const;
+	DartNode createFreeDart() const;
 
 	/// Get a list of "triangles" (one leading half-edge per triangle)
-	const std::list<Edge*>& getLeadingEdges() const {return leadingEdges_;}
+	const std::list<EdgeNode*>& getLeadingEdges() const {return leadingEdges_;}
 
 	/// Number of triangles
 	int noTriangles() const {return leadingEdges_.size();}
     
 	/// One half-edge for each arc
-	void getEdges(std::list<Edge*>& edges, 
+	void getEdges(std::list<EdgeNode*>& edges, 
 				   bool skip_boundary_edges = false) const;
 
-	void getNodes(std::list<Edge*>& nodes) const;
+	void getNodes(std::list<EdgeNode*>& nodes) const;
 	//	std::list<boost::shared_ptr<NodeType> >* getNodes() const;
 
 	/// Swap edges until the triangulation is Delaunay
@@ -184,29 +184,29 @@ namespace hed
 	bool checkDelaunay();    
 
 	/// Get an arbitrary interior node (as the source node of the returned edge)
-	Edge* getInteriorNode() const;
+	EdgeNode* getInteriorNode() const;
     
 	/// Get an arbitrary boundary edge
-	Edge* getBoundaryEdge() const;
+	EdgeNode* getBoundaryEdge() const;
 
 	/// Return all boundary edges.
-	std::vector<Edge*> getBoundaryEdges() const;
+	std::vector<EdgeNode*> getBoundaryEdges() const;
 
 	/// Print edges for plotting with, e.g., gnuplot
 	void printEdges(std::ostream& os, bool space_pts = true) const;
 
 	// Direct manipulation of the topology
-	void addLeadingEdge(Edge* edge) {edge->setAsLeadingEdge(); leadingEdges_.push_front(edge);}
-	bool removeLeadingEdgeFromList(Edge* leadingEdge);
+	void addLeadingEdge(EdgeNode* edge) {edge->setAsLeadingEdge(); leadingEdges_.push_front(edge);}
+	bool removeLeadingEdgeFromList(EdgeNode* leadingEdge);
 	void cleanAll();
 
 
     private:
-	std::list<Edge*> leadingEdges_; // one half-edge for each arc
+	std::list<EdgeNode*> leadingEdges_; // one half-edge for each arc
 
 	typedef boost::shared_ptr<NodeType> SmartNodePointer;
 	typedef std::map<SmartNodePointer, int> NodeMap;
-	int map_vertices(NodeMap& nodeMap, std::vector<Edge*>& edgeVector) const;
+	int map_vertices(NodeMap& nodeMap, std::vector<EdgeNode*>& edgeVector) const;
 	void flagNodes(bool flag) const;
 
     };

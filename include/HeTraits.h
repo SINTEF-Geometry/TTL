@@ -41,8 +41,8 @@ namespace hed {
     template <class NodeTraits>
     struct HeTraits {
 	typedef typename NodeTraits::NodeType NodeType;
-	typedef Dart<NodeTraits> Dart;
-	typedef HalfEdge<NodeType> Edge;
+	typedef Dart<NodeTraits> DartNode;
+	typedef HalfEdge<NodeType> EdgeNode;
 
 	/** The floating point type used in calculations
 	 *   involving scalar products and cross products.
@@ -54,9 +54,9 @@ namespace hed {
 	/** Scalar product between two 2D vectors represented as darts. <br>
 	 *   ttl_util::scalarProduct2d can be used.
 	 */
-	static real_type scalarProduct2d(const Dart& v1, const Dart& v2) {
-	    Dart v10 = v1; v10.alpha0();
-	    Dart v20 = v2; v20.alpha0();
+	static real_type scalarProduct2d(const DartNode& v1, const DartNode& v2) {
+	    DartNode v10 = v1; v10.alpha0();
+	    DartNode v20 = v2; v20.alpha0();
 	    return NodeTraits::scalarProduct2d(v1.getNode(), v10.getNode(),
 					       v2.getNode(), v20.getNode());
 	}
@@ -65,8 +65,8 @@ namespace hed {
 	 *   vector has direction from the source node of \e v to the point \e p. <br>
 	 *   NodeTraits::scalarProduct2d can be used.
 	 */
-	static real_type scalarProduct2d(const Dart& v, const NodeType& p) {
-	    Dart d0 = v; d0.alpha0();
+	static real_type scalarProduct2d(const DartNode& v, const NodeType& p) {
+	    DartNode d0 = v; d0.alpha0();
 	    return NodeTraits::scalarProduct2d(v.getNode(), d0.getNode(),
 					       v.getNode(), p);
 	}
@@ -74,9 +74,9 @@ namespace hed {
 	 *   The z-component of the cross product is returned. <br>
 	 *   NodeTraits::crossProduct2d can be used.
 	 */
-	static real_type crossProduct2d(const Dart& v1, const Dart& v2) {
-	    Dart v10 = v1; v10.alpha0();
-	    Dart v20 = v2; v20.alpha0();
+	static real_type crossProduct2d(const DartNode& v1, const DartNode& v2) {
+	    DartNode v10 = v1; v10.alpha0();
+	    DartNode v20 = v2; v20.alpha0();
 	    return NodeTraits::crossProduct2d(v1.getNode(), v10.getNode(),
 					      v2.getNode(), v20.getNode());
 	}
@@ -86,8 +86,8 @@ namespace hed {
 	 *   The z-component of the cross product is returned. <br>
 	 *   NodeTraits::crossProduct2d can be used.
 	 */
-	static real_type crossProduct2d(const Dart& v, const NodeType& p) {
-	    Dart d0 = v; d0.alpha0();
+	static real_type crossProduct2d(const DartNode& v, const NodeType& p) {
+	    DartNode d0 = v; d0.alpha0();
 	    return NodeTraits::crossProduct2d(v.getNode(), d0.getNode(),
 					      v.getNode(), p);
 	}
@@ -98,7 +98,7 @@ namespace hed {
 	 *   and \e p occur in counterclockwise order; a negative value if they occur
 	 *   in clockwise order; and zero if they are collinear.
 	 */
-	static real_type orient2d(const Dart& n1, const Dart& n2, const NodeType& p) {
+	static real_type orient2d(const DartNode& n1, const DartNode& n2, const NodeType& p) {
 	    return NodeTraits::orient2d(n1.getNode(), n2.getNode(), p);
 	}
 
@@ -107,14 +107,14 @@ namespace hed {
 	    The last parameter is given as a dart where the source node of the dart
 	    represents a point in the plane.
 	    This function is required for constrained triangulation. */
-	static real_type orient2d(const Dart& n1, const Dart& n2, const Dart& n3) {
+	static real_type orient2d(const DartNode& n1, const DartNode& n2, const DartNode& n3) {
 	    return NodeTraits::orient2d(n1.getNode(), n2.getNode(), n3.getNode());
 	}
 
 	/** Input is a dart that represents an edge.<br>
 	    The output is true if the edge is constrained in the
 	    underlying data structure. Currently unused. */
-	static bool edgeIsConstrained(const Dart& n1) {
+	static bool edgeIsConstrained(const DartNode& n1) {
 	    return n1.getEdge()->isConstrained();
 	}
 
@@ -133,20 +133,20 @@ namespace hed {
 	 *   { return ttl::swapTestDelaunay<TTLtraits>(dart); }
 	 *   \endcode
 	 */
-	//static bool swapTestDelaunay(const Dart& dart) {
+	//static bool swapTestDelaunay(const DartNode& dart) {
 	//return ttl::swapTestDelaunay<TTLtraits>(dart);}
     
 	/* Checks if the edge associated with \e dart can be swapped, i.e.,
 	 *   if the edge is a diagonal in a (strictly) convex quadrilateral.
 	 *   This function is also present as ttl::swappableEdge.
 	 */
-	//static bool swappableEdge(const Dart& dart) {
+	//static bool swappableEdge(const DartNode& dart) {
 	//return ttl::swappableEdge<TTLtraits>(dart);}
    
 	/* Checks if the edge associated with \e dart should be \e fixed, meaning
 	 *   that it should never be swapped. ??? Use when constraints.
 	 */
-	//static bool fixedEdge(const Dart& dart) {return dart.getEdge()->isConstrained();}
+	//static bool fixedEdge(const DartNode& dart) {return dart.getEdge()->isConstrained();}
 
 	/** @name Functions for Delaunay Triangulation*/
 	//@{
@@ -170,7 +170,7 @@ namespace hed {
 	 *   Some functions in TTL require that \c swapEdge is implemented such that
 	 *   darts outside the quadrilateral are not affected by the swap.
 	 */
-	static void swapEdge(Dart& dart) {
+	static void swapEdge(DartNode& dart) {
 	    if (!dart.getEdge()->isConstrained()) dart.getTriang()->swapEdge(*dart.getEdge());
 	}
     
@@ -184,7 +184,7 @@ namespace hed {
 	 *   \retval dart
 	 *    A CCW dart incident with the new node
 	 */
-	static void splitTriangle(Dart& dart, NodeType& point) {
+	static void splitTriangle(DartNode& dart, NodeType& point) {
 	    HalfEdge<NodeType>* edge = dart.getTriang()->splitTriangle(*dart.getEdge(), point);
 	    dart.init(edge, dart.getTriang());
 	}
@@ -200,13 +200,13 @@ namespace hed {
 	 *  \image html reverse_splitTriangle.gif
 	 *  </center>
 	 */
-	static void reverse_splitTriangle(Dart& dart) {
+	static void reverse_splitTriangle(DartNode& dart) {
 	    dart.getTriang()->reverse_splitTriangle(*dart.getEdge());}
     
 	/** Removes a triangle with an edge at the boundary of the triangulation
 	 *   in the actual data structure<br>
 	 */
-	static void removeBoundaryTriangle(Dart& dart) {
+	static void removeBoundaryTriangle(DartNode& dart) {
 	    dart.getTriang()->removeTriangle(*dart.getEdge());}
 	//@} // end group
     };

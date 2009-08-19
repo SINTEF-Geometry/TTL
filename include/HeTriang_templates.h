@@ -100,17 +100,17 @@ namespace hed
     inline Triangulation<NodeTraits>::Triangulation(const Triangulation<NodeTraits>&  other)
     {
 	// Making new edges.
-	typename std::list<Edge*> new_leading_edges;
-	typename std::list<Edge*>::const_iterator it;
-	const std::list<Edge*>& le = other.leadingEdges_;
+	typename std::list<EdgeNode*> new_leading_edges;
+	typename std::list<EdgeNode*>::const_iterator it;
+	const std::list<EdgeNode*>& le = other.leadingEdges_;
 	// node2edge will contain one entry per edge.
-	std::multimap<SmartNodePointer, Edge*> node2edge;
-	Edge* new_edges_in_tri[3];
+	std::multimap<SmartNodePointer, EdgeNode*> node2edge;
+	EdgeNode* new_edges_in_tri[3];
 	for (it = le.begin(); it != le.end(); ++it) {
-	    Edge* old = *it;
+	    EdgeNode* old = *it;
 	    int i;
 	    for (i = 0; i < 3; ++i) {
-		new_edges_in_tri[i] = new Edge;
+		new_edges_in_tri[i] = new EdgeNode;
 		new_edges_in_tri[i]->setSourceNode(old->getSourceNode());
 		old = old->getNextEdgeInFace();
 		node2edge.insert(std::make_pair(new_edges_in_tri[i]->getSourceNode(),
@@ -129,7 +129,7 @@ namespace hed
 	leadingEdges_.swap(new_leading_edges);
 
 	// For every node
-	typedef typename std::multimap<SmartNodePointer, Edge*>::iterator NIter;
+	typedef typename std::multimap<SmartNodePointer, EdgeNode*>::iterator NIter;
 	NIter mit = node2edge.begin();
 	while(mit != node2edge.end()) {
 	    // Pick the source and target node of the current edge
@@ -186,17 +186,17 @@ namespace hed
     //------------------------------------------------------------------------------
     template <class NodeTraits>
     inline int Triangulation<NodeTraits>::map_vertices(Triangulation<NodeTraits>::NodeMap& nodeMap, 
-						     std::vector<Edge*>& edgeVector) const
+						     std::vector<EdgeNode*>& edgeVector) const
     {
 	// assuring a clean depature
 	nodeMap.clear();
 	edgeVector.clear();
 
-	const std::list<Edge*>& triangles = getLeadingEdges();
-	Edge* tempEdge;
-	Edge* iterEdge;
+	const std::list<EdgeNode*>& triangles = getLeadingEdges();
+	EdgeNode* tempEdge;
+	EdgeNode* iterEdge;
 	SmartNodePointer tempNode;
-	typename std::list<Edge*>::const_iterator ti;
+	typename std::list<EdgeNode*>::const_iterator ti;
 	typename NodeMap::iterator ni;
 	int node_number = 0;
 
@@ -260,8 +260,8 @@ namespace hed
 	}
 
 	// construction of faces
-	std::vector<Edge*> all_edges;
-	std::vector<Edge*> poly_edges;
+	std::vector<EdgeNode*> all_edges;
+	std::vector<EdgeNode*> poly_edges;
 	for (i = 0; i < T; ++i) {
 	    int n;
 	    is >> n;
@@ -271,7 +271,7 @@ namespace hed
 	
 	    poly_edges.clear();
 	    for (j = 0; j < n; ++j) {
-		poly_edges.push_back(new(Edge));
+		poly_edges.push_back(new(EdgeNode));
 		int node_ind;
 		is >> node_ind;
 		if (node_ind >= nodes.size()) 
@@ -345,12 +345,12 @@ namespace hed
 	// mapping out nodes and triangles
 	NodeMap nodesToIndexes;
 
-	std::vector<Edge*> indexesToNodes;
-	std::list<Edge*> triangles = getLeadingEdges();
-	typename std::list<Edge*>::const_iterator ti;
+	std::vector<EdgeNode*> indexesToNodes;
+	std::list<EdgeNode*> triangles = getLeadingEdges();
+	typename std::list<EdgeNode*>::const_iterator ti;
 	std::vector<int>::const_iterator vi;
-	Edge* temp_edge;
-	Edge* first_edge;
+	EdgeNode* temp_edge;
+	EdgeNode* first_edge;
 	std::vector<int> face_vertices;
 
     // indexing nodes
@@ -398,16 +398,16 @@ namespace hed
 	NodeTraits::boundingCorners2d(first, last, *n1, *n2, *n3, *n4);
   
 	// diagonal
-	Edge* e1d = new Edge; // lower
-	Edge* e2d = new Edge; // upper, the twin edge
+	EdgeNode* e1d = new EdgeNode; // lower
+	EdgeNode* e2d = new EdgeNode; // upper, the twin edge
   
 	// lower triangle
-	Edge* e11 = new Edge;
-	Edge* e12 = new Edge;
+	EdgeNode* e11 = new EdgeNode;
+	EdgeNode* e12 = new EdgeNode;
   
 	// upper triangle
-	Edge* e21 = new Edge; // upper upper
-	Edge* e22 = new Edge;
+	EdgeNode* e21 = new EdgeNode; // upper upper
+	EdgeNode* e22 = new EdgeNode;
   
 	// lower triangle
 	e1d->setSourceNode(n3);
@@ -446,10 +446,10 @@ namespace hed
   
 	cleanAll();
     
-	Edge* bedge = initTwoEnclosingTriangles(first, last);
-	Dart dc(bedge, this);
+	EdgeNode* bedge = initTwoEnclosingTriangles(first, last);
+	DartNode dc(bedge, this);
   
-	Dart d_iter = dc;
+	DartNode d_iter = dc;
   
 	typedef HeTraits<NodeTraits> MyTraits;
 	typename std::vector< boost::shared_ptr<NodeType> >::iterator it;
@@ -477,9 +477,9 @@ namespace hed
 
     //------------------------------------------------------------------------------
     template <class NodeTraits>
-    inline void Triangulation<NodeTraits>::removeTriangle(Edge& edge) {
+    inline void Triangulation<NodeTraits>::removeTriangle(EdgeNode& edge) {
   
-	Edge* e1 = getLeadingEdgeInTriangle(&edge);
+	EdgeNode* e1 = getLeadingEdgeInTriangle(&edge);
 
 #ifdef DEBUG_HE
 	if (e1 == NULL)
@@ -490,8 +490,8 @@ namespace hed
 	removeLeadingEdgeFromList(e1);
 	// std::cout << "No leading edges = " << leadingEdges_.size() << std::endl;  
 	// Remove the triangle
-	Edge* e2 = e1->getNextEdgeInFace();
-	Edge* e3 = e2->getNextEdgeInFace();
+	EdgeNode* e2 = e1->getNextEdgeInFace();
+	EdgeNode* e3 = e2->getNextEdgeInFace();
   
 	if (e1->getTwinEdge())
 	    e1->getTwinEdge()->setTwinEdge(NULL);
@@ -534,12 +534,12 @@ namespace hed
 
     //------------------------------------------------------------------------------
     template <class NodeTraits>
-    inline void Triangulation<NodeTraits>::reverse_splitTriangle(Edge& edge) {
+    inline void Triangulation<NodeTraits>::reverse_splitTriangle(EdgeNode& edge) {
   
 	// Reverse operation of splitTriangle
   
-	Edge* e1 = edge.getNextEdgeInFace();
-	Edge* le = getLeadingEdgeInTriangle(e1);
+	EdgeNode* e1 = edge.getNextEdgeInFace();
+	EdgeNode* le = getLeadingEdgeInTriangle(e1);
 #ifdef DEBUG_HE
 	if (le == NULL)
 // 	    errorAndExit("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
@@ -547,7 +547,7 @@ namespace hed
 #endif
 	removeLeadingEdgeFromList(le);
   
-	Edge* e2 = e1->getNextEdgeInFace()->getTwinEdge()->getNextEdgeInFace();
+	EdgeNode* e2 = e1->getNextEdgeInFace()->getTwinEdge()->getNextEdgeInFace();
 	le = getLeadingEdgeInTriangle(e2);
 #ifdef DEBUG_HE
 	if (le == NULL)
@@ -557,7 +557,7 @@ namespace hed
 	removeLeadingEdgeFromList(le);
   
   
-	Edge* e3= edge.getTwinEdge()->getNextEdgeInFace()->getNextEdgeInFace();
+	EdgeNode* e3= edge.getTwinEdge()->getNextEdgeInFace()->getNextEdgeInFace();
 	le = getLeadingEdgeInTriangle(e3);
 #ifdef DEBUG_HE
 	if (le == NULL)
@@ -571,8 +571,8 @@ namespace hed
 	// Next delete the 6 half edges radiating from the node
 	// The node is maintained by handle and need not be deleted explicitly
   
-	Edge* estar = &edge;
-	Edge* enext = estar->getTwinEdge()->getNextEdgeInFace();
+	EdgeNode* estar = &edge;
+	EdgeNode* enext = estar->getTwinEdge()->getNextEdgeInFace();
 	delete estar->getTwinEdge();
 	delete estar;  
   
@@ -616,18 +616,18 @@ namespace hed
     inline Dart<NodeTraits> Triangulation<NodeTraits>::createDart() { 
   
 	// Return an arbitrary CCW dart
-	return Dart(*leadingEdges_.begin(), this);
+	return DartNode(*leadingEdges_.begin(), this);
     }
     template <class NodeTraits>
     inline Dart<NodeTraits> Triangulation<NodeTraits>::createFreeDart() const { 
   
 	// Return an arbitrary CCW dart, with no knowledge of its triangulation
-	return Dart(*leadingEdges_.begin(), 0);
+	return DartNode(*leadingEdges_.begin(), 0);
     }
 
     //------------------------------------------------------------------------------
     template <class NodeTraits>
-    inline bool Triangulation<NodeTraits>::removeLeadingEdgeFromList(Edge* leadingEdge) {
+    inline bool Triangulation<NodeTraits>::removeLeadingEdgeFromList(EdgeNode* leadingEdge) {
   
 	// Remove the edge from the list of leading edges,
 	// but don't delete it.
@@ -635,10 +635,10 @@ namespace hed
 	// Must search from start of list. Since edges are added to the
 	// start of the list during triangulation, this operation will
 	// normally be fast (when used in the triangulation algorithm)
-	typename std::list<Edge*>::iterator it;
+	typename std::list<EdgeNode*>::iterator it;
 	for (it = leadingEdges_.begin(); it != leadingEdges_.end(); ++it) {
     
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
 	    if (edge == leadingEdge) {
       
 		edge->setAsLeadingEdge(false);
@@ -659,11 +659,11 @@ namespace hed
     template <class NodeTraits>
     inline void Triangulation<NodeTraits>::cleanAll() {
   
-	typename std::list<Edge*>::const_iterator it;  
+	typename std::list<EdgeNode*>::const_iterator it;  
 	for (it = leadingEdges_.begin(); it != leadingEdges_.end(); ++it) {
-	    Edge* e1 = *it;
-	    Edge* e2 = e1->getNextEdgeInFace();
-	    Edge* e3 = e2->getNextEdgeInFace();
+	    EdgeNode* e1 = *it;
+	    EdgeNode* e2 = e1->getNextEdgeInFace();
+	    EdgeNode* e3 = e2->getNextEdgeInFace();
     
 	    delete e1;
 	    delete e2;
@@ -678,9 +678,9 @@ namespace hed
     template <class NodeTraits>
     inline void Triangulation<NodeTraits>::flagNodes(bool flag) const {
 	
-	typename std::list<Edge*>::const_iterator it;
+	typename std::list<EdgeNode*>::const_iterator it;
 	for (it = leadingEdges_.begin(); it != leadingEdges_.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
 	    
 	    for (int i = 0; i < 3; ++i) {
 		edge->getSourceNode()->setFlag(flag);
@@ -698,9 +698,9 @@ namespace hed
     ::getNodes(std::list< HalfEdge<TNAME NodeTraits::NodeType>* >& nodeList) const { 
 	flagNodes(false);
 	nodeList.clear();
-	typename std::list<Edge*>::const_iterator it;
+	typename std::list<EdgeNode*>::const_iterator it;
 	for (it = leadingEdges_.begin(); it != leadingEdges_.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
 	    for (int i = 0; i < 3; ++i) {
 		SmartNodePointer node = edge->getSourceNode();
 		if (node->getFlag() == false) {
@@ -723,12 +723,12 @@ namespace hed
 	// collect all arcs (one half edge for each arc)
 	// (boundary edges are also collected).
   
-	typename std::list<Edge*>::const_iterator it;
+	typename std::list<EdgeNode*>::const_iterator it;
 	elist.clear();
 	for (it = leadingEdges_.begin(); it != leadingEdges_.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
 	    for (int i = 0; i < 3; ++i) {
-		Edge* twinedge = edge->getTwinEdge();
+		EdgeNode* twinedge = edge->getTwinEdge();
 		// only one of the half-edges
       
 		if ( (twinedge == NULL && !skip_boundary_edges) ||
@@ -763,20 +763,20 @@ namespace hed
 
 	//	NodeType* new_node = &point;
 	boost::shared_ptr<NodeType> n1 = edge.getSourceNode();
-	Edge* e1 = &edge;
+	EdgeNode* e1 = &edge;
   
-	Edge* e2 = edge.getNextEdgeInFace();
+	EdgeNode* e2 = edge.getNextEdgeInFace();
 	boost::shared_ptr<NodeType> n2 = e2->getSourceNode();
   
-	Edge* e3 = e2->getNextEdgeInFace();
+	EdgeNode* e3 = e2->getNextEdgeInFace();
 	boost::shared_ptr<NodeType> n3 = e3->getSourceNode();
   
-	Edge* e1_n  = new Edge;
-	Edge* e11_n = new Edge;
-	Edge* e2_n  = new Edge;
-	Edge* e22_n = new Edge;
-	Edge* e3_n  = new Edge;
-	Edge* e33_n = new Edge;
+	EdgeNode* e1_n  = new EdgeNode;
+	EdgeNode* e11_n = new EdgeNode;
+	EdgeNode* e2_n  = new EdgeNode;
+	EdgeNode* e22_n = new EdgeNode;
+	EdgeNode* e3_n  = new EdgeNode;
+	EdgeNode* e33_n = new EdgeNode;
   
 	e1_n->setSourceNode(n1);
 	e11_n->setSourceNode(new_node);
@@ -812,7 +812,7 @@ namespace hed
 	// NOTE: Must search in the list!!!
   
   
-	Edge* leadingEdge;
+	EdgeNode* leadingEdge;
 	if (e1->isLeadingEdge())
 	    leadingEdge = e1;
 	else if (e2->isLeadingEdge())
@@ -837,7 +837,7 @@ namespace hed
     
     //------------------------------------------------------------------------------
     template <class NodeTraits>
-    inline void Triangulation<NodeTraits>::swapEdge(Edge& diagonal) {
+    inline void Triangulation<NodeTraits>::swapEdge(EdgeNode& diagonal) {
   
 	// Note that diagonal is both input and output and it is always
 	// kept in counterclockwise direction (this is not required by all 
@@ -845,12 +845,12 @@ namespace hed
   
 	// Swap by rotating counterclockwise
 	// Use the same objects - no deletion or new objects
-	Edge* eL   = &diagonal;
-	Edge* eR   = eL->getTwinEdge();
-	Edge* eL_1 = eL->getNextEdgeInFace();
-	Edge* eL_2 = eL_1->getNextEdgeInFace();
-	Edge* eR_1 = eR->getNextEdgeInFace();
-	Edge* eR_2 = eR_1->getNextEdgeInFace();
+	EdgeNode* eL   = &diagonal;
+	EdgeNode* eR   = eL->getTwinEdge();
+	EdgeNode* eL_1 = eL->getNextEdgeInFace();
+	EdgeNode* eL_2 = eL_1->getNextEdgeInFace();
+	EdgeNode* eR_1 = eR->getNextEdgeInFace();
+	EdgeNode* eR_2 = eR_1->getNextEdgeInFace();
   
 	// avoid node to be dereferenced to zero and deleted
 	boost::shared_ptr<NodeType> nR = eR_2->getSourceNode();
@@ -868,7 +868,7 @@ namespace hed
 	eR_2->setNextEdgeInFace(eL_1);
 	eL_1->setNextEdgeInFace(eR);
   
-	Edge* leL = 0;
+	EdgeNode* leL = 0;
 	if (eL->isLeadingEdge())
 	    leL = eL;
 	else if (eL_1->isLeadingEdge())
@@ -876,7 +876,7 @@ namespace hed
 	else if (eL_2->isLeadingEdge())
 	    leL = eL_2;
   
-	Edge* leR = 0;
+	EdgeNode* leR = 0;
 	if (eR->isLeadingEdge())
 	    leR = eR;
 	else if (eR_1->isLeadingEdge())
@@ -896,21 +896,21 @@ namespace hed
   
 	// ???? outputs !!!!
 	// ofstream os("qweND.dat");
-	const std::list<Edge*>& leadingEdges = getLeadingEdges();
+	const std::list<EdgeNode*>& leadingEdges = getLeadingEdges();
   
-	typename std::list<Edge*>::const_iterator it;
+	typename std::list<EdgeNode*>::const_iterator it;
 	bool ok = true;
 	int noNotDelaunay = 0;
   
 	for (it = leadingEdges.begin(); it != leadingEdges.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
     
 	    for (int i = 0; i < 3; ++i) {
-		Edge* twinedge = edge->getTwinEdge();
+		EdgeNode* twinedge = edge->getTwinEdge();
       
 		// only one of the half-edges
 		if (twinedge == NULL || (int)edge > (int)twinedge) {
-		    Dart dart(edge, this);
+		    DartNode dart(edge, this);
 		    if (ttl::swapTestDelaunay< HeTraits<NodeTraits> >(dart)) {
 			noNotDelaunay++;
           
@@ -941,18 +941,18 @@ namespace hed
 
 	// Collect all interior edges (one half edge for each arc)
 	bool skip_boundary_edges = true;
-	std::list<Edge*>* elist = getEdges(skip_boundary_edges);
+	std::list<EdgeNode*>* elist = getEdges(skip_boundary_edges);
   
 	// Assumes that elist has only one half-edge for each arc.
 	bool cycling_check = true;
 	bool optimal = false;
-	typename std::list<Edge*>::const_iterator it;
+	typename std::list<EdgeNode*>::const_iterator it;
 	while(!optimal) {
 	    optimal = true;
 	    for (it = elist->begin(); it != elist->end(); ++it) {
-		Edge* edge = *it;
+		EdgeNode* edge = *it;
       
-		Dart dart(edge, this);
+		DartNode dart(edge, this);
 		if (ttl::swapTestDelaunay< HeTraits<NodeTraits> >(dart, cycling_check)) {
 		    optimal = false;
 		    swapEdge(*edge);
@@ -966,16 +966,16 @@ namespace hed
     template <class NodeTraits>
     inline HalfEdge<TNAME NodeTraits::NodeType>* Triangulation<NodeTraits>::getInteriorNode() const {
   
-	const std::list<Edge*>& leadingEdges = getLeadingEdges();
-	typename std::list<Edge*>::const_iterator it;
+	const std::list<EdgeNode*>& leadingEdges = getLeadingEdges();
+	typename std::list<EdgeNode*>::const_iterator it;
 	for (it = leadingEdges.begin(); it != leadingEdges.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
     
 	    // multiple checks, but only until found
 	    for (int i = 0; i < 3; ++i) {
 		if (edge->getTwinEdge() != NULL) {
         
-		    if (!ttl::isBoundaryNode(Dart(edge)))
+		    if (!ttl::isBoundaryNode(DartNode(edge)))
 			return edge;
 		}
 		edge = edge->getNextEdgeInFace();
@@ -993,9 +993,9 @@ namespace hed
 	// Get an arbitrary (CCW) boundary edge
 	// If the triangulation is closed, NULL is returned
 
-	const std::list<Edge*>& leadingEdges = getLeadingEdges();
-	typename std::list<Edge*>::const_iterator it;
-	Edge* edge;
+	const std::list<EdgeNode*>& leadingEdges = getLeadingEdges();
+	typename std::list<EdgeNode*>::const_iterator it;
+	EdgeNode* edge;
   
 	for (it = leadingEdges.begin(); it != leadingEdges.end(); ++it) {
 	    edge = getBoundaryEdgeInTriangle(*it);
@@ -1014,11 +1014,11 @@ namespace hed
 	// Get all (CCW) boundary edges
 	// If the triangulation is closed, empty vector is returned
 
-	const std::list<Edge*>& leadingEdges = getLeadingEdges();
-	typename std::list<Edge*>::const_iterator it;
-	Edge* edge;
+	const std::list<EdgeNode*>& leadingEdges = getLeadingEdges();
+	typename std::list<EdgeNode*>::const_iterator it;
+	EdgeNode* edge;
 
-	std::vector<Edge*> bd_edges;
+	std::vector<EdgeNode*> bd_edges;
 	for (it = leadingEdges.begin(); it != leadingEdges.end(); ++it) {
 	    edge = getBoundaryEdgeInTriangle(*it);
     
@@ -1043,13 +1043,13 @@ namespace hed
 	// Print source node and target node for each edge face by face,
 	// but only one of the half-edges.
   
-	const std::list<Edge*>& leadingEdges = getLeadingEdges();
-	typename std::list<Edge*>::const_iterator it;
+	const std::list<EdgeNode*>& leadingEdges = getLeadingEdges();
+	typename std::list<EdgeNode*>::const_iterator it;
 	for (it = leadingEdges.begin(); it != leadingEdges.end(); ++it) {
-	    Edge* edge = *it;
+	    EdgeNode* edge = *it;
     
 	    for (int i = 0; i < 3; ++i) {
-		Edge* twinedge = edge->getTwinEdge();
+		EdgeNode* twinedge = edge->getTwinEdge();
       
 		// Print only one edge (the highest value of the pointer)
 		if (twinedge == NULL || (int)edge > (int)twinedge) {
