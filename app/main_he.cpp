@@ -6,16 +6,20 @@
 #include <algorithm>
 using namespace std;
 
-#include "ExampleNode.h"
-#include "example_util.h"
-#include "HeTriang.h"
-#include "HeTraits.h"
-#include "timeutils.h"
+#include "GoTools/ttl/ExampleNode.h"
+#include "GoTools/ttl/example_util.h"
+#include "GoTools/ttl/HeTriang.h"
+#include "GoTools/ttl/HeTraits.h"
+#include "GoTools/utils/timeutils.h"
+
+
+using namespace Go;
+
 
 typedef boost::shared_ptr<ExampleNode> NodePtr;
 typedef hed::Triangulation<ExampleNodeTraits> Triangulation;
-typedef Triangulation::Edge Edge;
-typedef Triangulation::Dart Dart;
+typedef Triangulation::EdgeNode Edge;
+typedef Triangulation::DartNode Dart;
 typedef hed::HeTraits<ExampleNodeTraits> Traits;
 
 // ----------------------------------------------------------

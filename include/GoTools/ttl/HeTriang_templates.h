@@ -17,7 +17,8 @@
 //===========================================================================
 
 
-#include "HeTraits.h"
+#include "GoTools/ttl/HeTraits.h"
+#include "GoTools/utils/errormacros.h"
 #include <sstream>
 #include <iostream>
 
@@ -909,7 +910,7 @@ namespace hed
 		EdgeNode* twinedge = edge->getTwinEdge();
       
 		// only one of the half-edges
-		if (twinedge == NULL || (int)edge > (int)twinedge) {
+		if (twinedge == NULL || (long int)edge > (long int)twinedge) {
 		    DartNode dart(edge, this);
 		    if (ttl::swapTestDelaunay< HeTraits<NodeTraits> >(dart)) {
 			noNotDelaunay++;
@@ -1052,7 +1053,7 @@ namespace hed
 		EdgeNode* twinedge = edge->getTwinEdge();
       
 		// Print only one edge (the highest value of the pointer)
-		if (twinedge == NULL || (int)edge > (int)twinedge) {
+		if (twinedge == NULL || (long int)edge > (long int)twinedge) {
 		    // Print source node and target node
 		    boost::shared_ptr<NodeType> node = edge->getSourceNode();
 		    if (space_pts)

@@ -16,7 +16,7 @@
 #define _EXAMPLENODE_H
 
 
-#include "ttl_util.h"
+#include "GoTools/ttl/ttl_util.h"
 #include <boost/smart_ptr.hpp>
 
 
