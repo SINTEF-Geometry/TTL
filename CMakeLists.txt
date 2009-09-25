@@ -10,6 +10,8 @@ OPTION(EXTEND_CMAKE_MODULE_PATH
   "Extend the CMAKE_MODULE_PATH variable with user directories?" ON)
 IF(EXTEND_CMAKE_MODULE_PATH)
   SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} 
+    ${CMAKE_HOME_DIRECTORY}/cmake/Modules
+    ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules
     "./cmake/Modules"
     "~/cmake/Modules")
 ENDIF(EXTEND_CMAKE_MODULE_PATH)
@@ -71,7 +73,7 @@ ADD_CUSTOM_COMMAND(
 
 # 'install' target
 
-INSTALL(TARGETS ttl DESTINATION lib)
+INSTALL(TARGETS ttl DESTINATION lib/GoTools)
 INSTALL(DIRECTORY include/GoTools/ttl
   DESTINATION include/GoTools
   FILES_MATCHING PATTERN "*.h"
