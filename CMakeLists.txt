@@ -5,49 +5,26 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 # Find modules
 
-# First extend CMake module path
-OPTION(EXTEND_CMAKE_MODULE_PATH 
-  "Extend the CMAKE_MODULE_PATH variable with user directories?" ON)
-IF(EXTEND_CMAKE_MODULE_PATH)
-  SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} 
-    ${CMAKE_HOME_DIRECTORY}/cmake/Modules
-    ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules
-    "./cmake/Modules"
-    "~/cmake/Modules")
-ENDIF(EXTEND_CMAKE_MODULE_PATH)
-
-FIND_PACKAGE(GoTools)
+FIND_PACKAGE(Boost REQUIRED)
 
 
 # Include directories
 
 INCLUDE_DIRECTORIES(
   ${ttl_SOURCE_DIR}/include
-  ${GoTools_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
   )
-
-IF(WIN32)
-  FIND_PATH(
-    BOOST_DIR boost/shared_ptr.hpp
-    PATHS "C:/Program Files/boost/boost_1_34_1"
-    DOC "Boost must be installed on the system"
-    )
-  INCLUDE_DIRECTORIES(
-    ${BOOST_DIR}
-    )
-ENDIF(WIN32)
 
 
 # Linked in libraries
 
 SET(DEPLIBS
-  ${GoTools_LIBRARIES}
   )
 
 
 # Make the ttl library
 
-FILE(GLOB ttl_SRCS src/*.C src/*.cpp)
+FILE(GLOB_RECURSE ttl_SRCS src/*.C src/*.cpp include/*.h)
 ADD_LIBRARY(ttl ${ttl_SRCS})
 TARGET_LINK_LIBRARIES(ttl ${DEPLIBS})
 
@@ -73,10 +50,27 @@ ADD_CUSTOM_COMMAND(
 
 # 'install' target
 
-INSTALL(TARGETS ttl DESTINATION lib/GoTools)
-INSTALL(DIRECTORY include/GoTools/ttl
-  DESTINATION include/GoTools
-  FILES_MATCHING PATTERN "*.h"
-  PATTERN ".hpp"
-  PATTERN ".svn" EXCLUDE
-)
+IF(WIN32)
+  # Windows
+  SET(CMAKE_INSTALL_PREFIX CACHE INTERNAL "")
+  SET(ttl_INSTALL_PREFIX "C:/Program Files (x86)/TTL"
+    CACHE PATH "Path to install TTL")
+  # lib
+  INSTALL(TARGETS ttl DESTINATION ${ttl_INSTALL_PREFIX}/lib)
+  # include
+  INSTALL(DIRECTORY include/GoTools/ttl
+    DESTINATION ${ttl_INSTALL_PREFIX}/include
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN ".svn" EXCLUDE
+    )
+ELSE(WIN32)
+  # Linux
+  # lib
+  INSTALL(TARGETS ttl DESTINATION lib)
+  # include
+  INSTALL(DIRECTORY include/GoTools/ttl
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN ".svn" EXCLUDE
+    )
+ENDIF(WIN32)
