@@ -17,7 +17,7 @@
 //===========================================================================
 
 
-#include "GoTools/ttl/HeTraits.h"
+#include "ttl/HeTraits.h"
 // #include "GoTools/utils/errormacros.h"
 #include <sstream>
 #include <iostream>

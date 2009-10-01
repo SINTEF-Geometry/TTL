@@ -1689,6 +1689,6 @@ passes:
   // --------------- C O N S T R A I N E D   G R O U P -----------------------
   //                 Still namespace ttl
   //--------------------------------------------------------------------------
-#include "GoTools/ttl/ttl_constr.h"
+#include "ttl/ttl_constr.h"
 
 #endif //_TTL_H_

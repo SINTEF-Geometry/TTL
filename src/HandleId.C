@@ -1,4 +1,4 @@
-#include "GoTools/ttl/HandleId.h"
+#include "ttl/HandleId.h"
 
 #ifndef TTL_USE_OLD_STD
   #include <iostream>

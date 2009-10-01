@@ -6,10 +6,10 @@
 #include <algorithm>
 using namespace std;
 
-#include "GoTools/ttl/ExampleNode.h"
-#include "GoTools/ttl/example_util.h"
-#include "GoTools/ttl/HeTriang.h"
-#include "GoTools/ttl/HeTraits.h"
+#include "ttl/ExampleNode.h"
+#include "ttl/example_util.h"
+#include "ttl/HeTriang.h"
+#include "ttl/HeTraits.h"
 // #include "GoTools/utils/timeutils.h"
 #include <time.h>
 

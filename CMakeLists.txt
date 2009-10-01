@@ -58,7 +58,7 @@ IF(WIN32)
   # lib
   INSTALL(TARGETS ttl DESTINATION ${ttl_INSTALL_PREFIX}/lib)
   # include
-  INSTALL(DIRECTORY include/GoTools/ttl
+  INSTALL(DIRECTORY include/ttl
     DESTINATION ${ttl_INSTALL_PREFIX}/include
     FILES_MATCHING PATTERN "*.h"
     PATTERN ".svn" EXCLUDE
@@ -68,7 +68,7 @@ ELSE(WIN32)
   # lib
   INSTALL(TARGETS ttl DESTINATION lib)
   # include
-  INSTALL(DIRECTORY include/GoTools/ttl
+  INSTALL(DIRECTORY include/ttl
     DESTINATION include
     FILES_MATCHING PATTERN "*.h"
     PATTERN ".svn" EXCLUDE
