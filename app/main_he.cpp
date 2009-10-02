@@ -6,14 +6,15 @@
 #include <algorithm>
 using namespace std;
 
-#include "GoTools/ttl/ExampleNode.h"
-#include "GoTools/ttl/example_util.h"
-#include "GoTools/ttl/HeTriang.h"
-#include "GoTools/ttl/HeTraits.h"
-#include "GoTools/utils/timeutils.h"
+#include "ttl/ExampleNode.h"
+#include "ttl/example_util.h"
+#include "ttl/HeTriang.h"
+#include "ttl/HeTraits.h"
+// #include "GoTools/utils/timeutils.h"
+#include <time.h>
 
 
-using namespace Go;
+// using namespace Go;
 
 
 typedef boost::shared_ptr<ExampleNode> NodePtr;
@@ -58,11 +59,15 @@ int main()
     // Create random test data.
     int no_of_nodes = 100;
     std::vector<NodePtr> nodes;
-    double time = getCurrentTime();
+//     double time = getCurrentTime();
+    time_t t1 = time(NULL);
     std::cout << "Press enter to start." << std::endl;
     char c;
     std::cin >> c;
-    int seed = int(100000*(getCurrentTime() - time));
+    time_t t2 = time(NULL);
+    double tdiff = difftime(t2, t1);
+//     int seed = int(100000*(getCurrentTime() - time));
+    int seed = int(100000*(tdiff));
     createRandomData(no_of_nodes, nodes, seed);
 
   // Sort the nodes lexicographically in the plane.

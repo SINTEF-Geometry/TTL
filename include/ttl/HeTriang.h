@@ -22,10 +22,10 @@
 #include <iostream>
 #include <boost/smart_ptr.hpp>
 
-#include "GoTools/ttl/ttl.h"
-#include "GoTools/ttl/ttl_util.h"
+#include "ttl/ttl.h"
+#include "ttl/ttl_util.h"
 
-#include "GoTools/ttl/HeEdge.h"
+#include "ttl/HeEdge.h"
 
 // The half-edge data structure
 
@@ -213,7 +213,7 @@ namespace hed
 }; //end of half_edge namespace
 
 // Include all the member functions
-#include "GoTools/ttl/HeTriang_templates.h"
+#include "ttl/HeTriang_templates.h"
 
 
 #endif

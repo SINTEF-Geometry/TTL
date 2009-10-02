@@ -17,7 +17,7 @@
 #ifndef _HALF_EDGE_TRAITS_
 #define _HALF_EDGE_TRAITS_
 
-#include "GoTools/ttl/HeEdge.h"
+#include "ttl/HeEdge.h"
 
 namespace hed {
   //----------------------------------------------

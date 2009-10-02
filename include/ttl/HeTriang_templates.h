@@ -17,8 +17,8 @@
 //===========================================================================
 
 
-#include "GoTools/ttl/HeTraits.h"
-#include "GoTools/utils/errormacros.h"
+#include "ttl/HeTraits.h"
+// #include "GoTools/utils/errormacros.h"
 #include <sstream>
 #include <iostream>
 
@@ -232,7 +232,10 @@ namespace hed
 	//   in counterclockwise order, each tuple starting with the integer n.
  
     // removing current triangulation
-        ASSERT(is.good());
+//         ASSERT(is.good());
+	if (!is.good()) {
+	    throw std::exception();
+	}
 	cleanAll();
    
 	// determining number of vertices and polygons
@@ -483,9 +486,12 @@ namespace hed
 	EdgeNode* e1 = getLeadingEdgeInTriangle(&edge);
 
 #ifdef DEBUG_HE
-	if (e1 == NULL)
+	if (e1 == NULL) {
 // 	    errorAndExit("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
-	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+// 	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+	    cout << "Triangulation<NodeTraits>::removeTriangle: could not find leading edge" << endl;
+	    throw std::exception();
+	}
 #endif
   
 	removeLeadingEdgeFromList(e1);
@@ -542,18 +548,24 @@ namespace hed
 	EdgeNode* e1 = edge.getNextEdgeInFace();
 	EdgeNode* le = getLeadingEdgeInTriangle(e1);
 #ifdef DEBUG_HE
-	if (le == NULL)
+	if (le == NULL) {
 // 	    errorAndExit("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
-	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+// 	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+	    cout << "Triangulation<NodeTraits>::removeTriangle: could not find leading edge" << endl;
+	    throw std::exception();
+	}
 #endif
 	removeLeadingEdgeFromList(le);
   
 	EdgeNode* e2 = e1->getNextEdgeInFace()->getTwinEdge()->getNextEdgeInFace();
 	le = getLeadingEdgeInTriangle(e2);
 #ifdef DEBUG_HE
-	if (le == NULL)
+	if (le == NULL) {
 // 	    errorAndExit("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
-	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+// 	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+	    cout << "Triangulation<NodeTraits>::removeTriangle: could not find leading edge" << endl;
+	    throw std::exception();
+	}
 #endif
 	removeLeadingEdgeFromList(le);
   
@@ -561,9 +573,12 @@ namespace hed
 	EdgeNode* e3= edge.getTwinEdge()->getNextEdgeInFace()->getNextEdgeInFace();
 	le = getLeadingEdgeInTriangle(e3);
 #ifdef DEBUG_HE
-	if (le == NULL)
+	if (le == NULL) {
 // 	    errorAndExit("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
-	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+// 	    THROW("Triangulation<NodeTraits>::removeTriangle: could not find leading edge");
+	    cout << "Triangulation<NodeTraits>::removeTriangle: could not find leading edge" << endl;
+	    throw std::exception();
+	}
 #endif
 	removeLeadingEdgeFromList(le);
   
