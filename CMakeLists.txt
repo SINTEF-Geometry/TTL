@@ -5,8 +5,19 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 # Find modules
 
-FIND_PACKAGE(Boost REQUIRED)
+# First extend CMake module path
+OPTION(EXTEND_CMAKE_MODULE_PATH 
+  "Extend the CMAKE_MODULE_PATH variable with user directories?" ON)
+IF(EXTEND_CMAKE_MODULE_PATH)
+  SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} 
+    ${CMAKE_HOME_DIRECTORY}/cmake/Modules
+    ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules
+    "./cmake/Modules"
+    "~/cmake/Modules"
+    "C:/cmake/Modules")
+ENDIF(EXTEND_CMAKE_MODULE_PATH)
 
+FIND_PACKAGE(Boost REQUIRED)
 FIND_PACKAGE(GoTools REQUIRED)
 
 # Include directories
