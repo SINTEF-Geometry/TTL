@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='ISO-8859-1' standalone='yes' ?>
+<tagfile>
+  <compound kind="page">
+    <name>index</name>
+    <title>TTL, The Triangulation Template Library</title>
+    <filename>index</filename>
+    <docanchor file="index">aboutdoc</docanchor>
+    <docanchor file="index">startdoc</docanchor>
+    <docanchor file="index">download</docanchor>
+    <docanchor file="index">platform</docanchor>
+    <docanchor file="index">datastructures</docanchor>
+    <docanchor file="index">publications</docanchor>
+    <docanchor file="index">funding</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>download_page</name>
+    <title>Download page for TTL</title>
+    <filename>download_page</filename>
+    <docanchor file="download_page">downloading</docanchor>
+    <docanchor file="download_page">copyright</docanchor>
+    <docanchor file="download_page">code</docanchor>
+    <docanchor file="download_page">licensing</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>qpl</name>
+    <title>The Q Public License Version 1.0</title>
+    <filename>qpl</filename>
+  </compound>
+  <compound kind="page">
+    <name>readme</name>
+    <title>README</title>
+    <filename>readme</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>ttl</name>
+    <filename>namespacettl.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>insertNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>29dbf8ff663e9cbccec2ed17d437b915</anchor>
+      <arglist>(DartType &amp;dart, PointType &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>insertNodes</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>a00031d9430d34aebf644083efb41949</anchor>
+      <arglist>(ForwardIterator first, ForwardIterator last, DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeRectangularBoundary</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>41f7533eb14dea5b7c3f4c6ea7f16655</anchor>
+      <arglist>(DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>796193050d5583c4f96f9f6bd988e530</anchor>
+      <arglist>(DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeBoundaryNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>4c3b043409ba7cdf81b2735178e5515b</anchor>
+      <arglist>(DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeInteriorNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>cf9077871a0528b08ad66273c3e097a4</anchor>
+      <arglist>(DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMemberOfFace</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>a40c505f5c644357ef7fa7832c75f72d</anchor>
+      <arglist>(const TopologyElementType &amp;topologyElement, const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>locateFaceWithNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>f0501eebc04d7de800796da518c1d725</anchor>
+      <arglist>(const NodeType &amp;node, DartType &amp;dart_iter)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>locateFaceSimplest</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>777fd45858e655ab8fb244def6310800</anchor>
+      <arglist>(const PointType &amp;point, DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>locateTriangle</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>5f04c20d0786755a92c8d2f166379599</anchor>
+      <arglist>(const PointType &amp;point, DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>inTriangleSimplest</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>ca779a1542007963c85671739b834b2f</anchor>
+      <arglist>(const PointType &amp;point, const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>inTriangle</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>bb59c1837c69f524f6b420de5c70e590</anchor>
+      <arglist>(const PointType &amp;point, const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getAdjacentTriangles</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>1fb9cc6b4fdf12601dcc32cec5eefcae</anchor>
+      <arglist>(const DartType &amp;dart, DartType &amp;t1, DartType &amp;t2, DartType &amp;t3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getBoundary</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>0ec704f9c10a79e00e4765388259cbc0</anchor>
+      <arglist>(const DartType &amp;dart, DartListType &amp;boundary)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isBoundaryEdge</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>0005ecaf3d54298da01be64ea6b474a8</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isBoundaryFace</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>f02d63e99753db4e1259205a3ccb8432</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isBoundaryNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>9eba6026cb5037c2e9ad5d203c1257ab</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getDegreeOfNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>6b6626cfe11df135e5f9f64bb6887a8a</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getNeighborNodes</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>dda737818f8e2fc111661d8bd060050e</anchor>
+      <arglist>(const DartType &amp;dart, list&lt; DartType &gt; &amp;node_list, bool &amp;boundary)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_0_orbit_interior</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>0b7770fa904a92f88d04bf6c72678bd5</anchor>
+      <arglist>(const DartType &amp;dart, DartListType &amp;orbit)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_0_orbit_boundary</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>92d5a9e73a19455c4ca1df9bda3bb2fd</anchor>
+      <arglist>(const DartType &amp;dart, DartListType &amp;orbit)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>same_0_orbit</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>6cfdc49c5fc77db106f8ab2aebbdde2c</anchor>
+      <arglist>(const DartType &amp;d1, const DartType &amp;d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>same_1_orbit</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>ba7626e4155dc165219a5f6e49fbb4b1</anchor>
+      <arglist>(const DartType &amp;d1, const DartType &amp;d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>same_2_orbit</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>57597fbf403410ffec959aba5f52c5ef</anchor>
+      <arglist>(const DartType &amp;d1, const DartType &amp;d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>degenerateTriangle</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>bbb58a1e5f752fff8ebdca106949f2f5</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>swappableEdge</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>415ce5b4cf222358687f5edff7a11d52</anchor>
+      <arglist>(const DartType &amp;dart, bool allowDegeneracy=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>positionAtNextBoundaryEdge</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>1ebe9935cf27a446e515c3b0922d7c1e</anchor>
+      <arglist>(DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>convexBoundary</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>9e0e563f94040b05ebda955e4bb74028</anchor>
+      <arglist>(const DartType &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>optimizeDelaunay</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>190da335d29a65ce524868714ff3614c</anchor>
+      <arglist>(DartListType &amp;elist)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>optimizeDelaunay</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>cd26a196905132b99ef67f10ec7162d7</anchor>
+      <arglist>(DartListType &amp;elist, const typename DartListType::iterator end)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>swapTestDelaunay</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>1cb871915e3fbcf5f4e25079a7500f0c</anchor>
+      <arglist>(const DartType &amp;dart, bool cycling_check)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>recSwapDelaunay</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>34b5791cd85eef9043f80f859b53b24c</anchor>
+      <arglist>(DartType &amp;diagonal)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>swapEdgesAwayFromInteriorNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>cc25203893aa640fe9f66b28d84e457d</anchor>
+      <arglist>(DartType &amp;dart, ListType &amp;swapped_edges)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>swapEdgesAwayFromBoundaryNode</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>b862634af9ce8c71497dc78993104cbf</anchor>
+      <arglist>(DartType &amp;dart, ListType &amp;swapped_edges)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>swapEdgeInList</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>816c0b9687712b9a58225c46fbaa8446</anchor>
+      <arglist>(const typename DartListType::iterator &amp;it, DartListType &amp;elist)</arglist>
+    </member>
+    <member kind="function">
+      <type>DartType</type>
+      <name>insertConstraint</name>
+      <anchorfile>namespacettl.html</anchorfile>
+      <anchor>3096f6756146df27c873c4ff3fe5a19f</anchor>
+      <arglist>(DartType &amp;dstart, DartType &amp;dend, bool optimize_delaunay)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>ttl_constr</name>
+    <filename>namespacettl__constr.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>isTheConstraint</name>
+      <anchorfile>namespacettl__constr.html</anchorfile>
+      <anchor>42d6b162a11fbf0ce158fab4238ac0b7</anchor>
+      <arglist>(const DartType &amp;dart, const DartType &amp;dstart, const DartType &amp;dend)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>crossesConstraint</name>
+      <anchorfile>namespacettl__constr.html</anchorfile>
+      <anchor>33bb9be1e2d3289322a820a74fcedff5</anchor>
+      <arglist>(DartType &amp;dstart, DartType &amp;dend, DartType &amp;d1, DartType &amp;d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>DartType</type>
+      <name>getAtSmallestAngle</name>
+      <anchorfile>namespacettl__constr.html</anchorfile>
+      <anchor>446bd5c843cea9cf6199e7d47b7f9f2a</anchor>
+      <arglist>(const DartType &amp;dstart, const DartType &amp;dend)</arglist>
+    </member>
+    <member kind="function">
+      <type>DartType</type>
+      <name>findCrossingEdges</name>
+      <anchorfile>namespacettl__constr.html</anchorfile>
+      <anchor>e499534b46ab2099c11c1a196fbf0169</anchor>
+      <arglist>(const DartType &amp;dstart, const DartType &amp;dend, ListType &amp;elist)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>transformToConstraint</name>
+      <anchorfile>namespacettl__constr.html</anchorfile>
+      <anchor>1b13b075fc6d92c4c63498ea9421ebf6</anchor>
+      <arglist>(DartType &amp;dstart, DartType &amp;dend, list&lt; DartType &gt; &amp;elist)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>ttl_util</name>
+    <filename>namespacettl__util.html</filename>
+    <member kind="function">
+      <type>real_type</type>
+      <name>scalarProduct2d</name>
+      <anchorfile>namespacettl__util.html</anchorfile>
+      <anchor>f0c7fb2a62351f6d6d2e309d976e55d4</anchor>
+      <arglist>(real_type dx1, real_type dy1, real_type dx2, real_type dy2)</arglist>
+    </member>
+    <member kind="function">
+      <type>real_type</type>
+      <name>crossProduct2d</name>
+      <anchorfile>namespacettl__util.html</anchorfile>
+      <anchor>a56f84c92c8e8b66ba3001ccbfc20d05</anchor>
+      <arglist>(real_type dx1, real_type dy1, real_type dx2, real_type dy2)</arglist>
+    </member>
+    <member kind="function">
+      <type>real_type</type>
+      <name>orient2dfast</name>
+      <anchorfile>namespacettl__util.html</anchorfile>
+      <anchor>5b125fd09c4ba887927786ea82137a9d</anchor>
+      <arglist>(real_type pa[2], real_type pb[2], real_type pc[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>vector&lt; PointType * &gt; *</type>
+      <name>createRandomData</name>
+      <anchorfile>namespacettl__util.html</anchorfile>
+      <anchor>66fdd620c51306a6112f92559a346964</anchor>
+      <arglist>(int noPoints, int seed=1)</arglist>
+    </member>
+  </compound>
+</tagfile>

@@ -1,0 +1,48 @@
+//==================================================================================================
+//
+//  Download page for TTL
+//
+//==================================================================================================
+
+
+/** \page download_page Download page for TTL
+
+\section copyright Copyright
+Copyright (C) 2000-2003 SINTEF Applied Mathematics.  All rights reserved.
+
+This software may be distributed under the terms of the Q Public License
+as defined by Trolltech AS of Norway and appearing in the file
+\ref qpl "LICENSE.QPL" included in the packaging of this software.
+ 
+This software is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+\section licensing Licensing
+
+TTL is licensed under the \ref qpl "Qt Public License (QPL)" approved by the 
+ <A HREF="http://www.opensource.org">Open Source Initiative (OSI)</A>.
+
+\section downloading Downloading
+
+Packages with the source code, examples and documentation runs on both
+Linux and Microsoft Windows.
+
+\subsection code Source code
+
+- Zipped package with makefiles for Linux, CygWin, etc...:
+  <A HREF="../../../ttl-1.0.2.zip">ttl-1.0.2.zip</A>
+- README file for the package:
+  \ref readme "README"
+
+Se the \ref readme "README" file for more information.
+
+Please report any problems, bugs or comments to
+<A HREF="mailto:oyvindhj@ifi.uio.no">oyvindhj@ifi.uio.no</A>
+
+\htmlonly
+<CENTER>
+<A HREF="http://www.opensource.org"><img src="osi-certified.gif" alt="OSI" border=0></A>
+</CENTER>
+\endhtmlonly
+
+*/

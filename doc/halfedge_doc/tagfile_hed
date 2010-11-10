@@ -1,0 +1,950 @@
+<?xml version='1.0' encoding='ISO-8859-1' standalone='yes' ?>
+<tagfile>
+  <compound kind="page">
+    <name>index</name>
+    <title>The Half-Edge Data Structure and Adaption to TTL</title>
+    <filename>index</filename>
+    <docanchor file="index">example_he</docanchor>
+    <docanchor file="index">heclassdiagram</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>api</name>
+    <title>Application Programming Interface to TTL (API)</title>
+    <filename>api</filename>
+    <docanchor file="api">darttypesec</docanchor>
+    <docanchor file="api">traitstypesec</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>hesimplest</name>
+    <title>Example using TTL and the half-edge data structure</title>
+    <filename>hesimplest</filename>
+  </compound>
+  <compound kind="class">
+    <name>Handle</name>
+    <filename>classHandle.html</filename>
+    <templarg>T</templarg>
+    <member kind="function">
+      <type></type>
+      <name>Handle</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>6a72028918adf79c0ff8d9996e5e4107</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Handle</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>1b0a3e0e3449918fac3bf223a70b8709</anchor>
+      <arglist>(const T &amp;ref)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Handle</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>d2cab6ea66970629a381c70738b0b472</anchor>
+      <arglist>(T *p)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Handle</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>9cadb5daacd62808eb3d3dd059a6fe2e</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;ref)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Handle</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>f44781eaf3bf4a8dc43c03bbffb6a99b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>rebind</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>d185ab655996c9f4f4d3c6d60b82f2ab</anchor>
+      <arglist>(const T *pc)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>rebind</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>150c54fa8c15a76a656c844ef73e5962</anchor>
+      <arglist>(const T &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>const T *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>8e35cc7b138305c43cac10a2b4cb728c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>86614303c99dd2616bec91f67d09c648</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>operator()</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>b6260994d1cabdd0586b725781963e46</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T &amp;</type>
+      <name>operator()</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>71a32d9971601ddc7370f1487b1b0b9f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>operator *</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>6d0f887db7930d7ac061602929549ca9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T &amp;</type>
+      <name>operator *</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>16523e3711cd7fd40a4a4c39b62842c4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const T *</type>
+      <name>getPtr</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>2b08e35a985e3fa49653b7afd2b3a2c0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T *</type>
+      <name>getPtr</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>904517eada1393456c257bba79f8ee31</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>getRef</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>1a9b0e1721caa3e4aae761714861bd00</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T &amp;</type>
+      <name>getRef</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>a0d40f86fb91881263135e468c500c61</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>90a09410b859358597334c0e8faa0e72</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;h)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>a393552601be7cb81793a0633d2b74ed</anchor>
+      <arglist>(const T *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator=</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>dc4a85d1badceeb701e514681212e6c9</anchor>
+      <arglist>(const T &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>45195cf1a551f9cc981a4a7512b31577</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;h) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>c1bd5a73926c0247dd952d52517931eb</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;h) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>f688ff4c3964157babd72d56dc855409</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;h) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&gt;</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>b7bcd0b788dc470b7133454514ff8116</anchor>
+      <arglist>(const Handle&lt; T &gt; &amp;h) const</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>T *</type>
+      <name>classptr</name>
+      <anchorfile>classHandle.html</anchorfile>
+      <anchor>daead7076a54db6aff6cd20c3d5effa7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>HandleId</name>
+    <filename>classHandleId.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>HandleId</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>01fddf4a8dc585f3e586995abbaf9c18</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~HandleId</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>a51e63467689ea379db024af0afbd232</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReferenced</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>252f1f9aee7e04b82856b9375f79420e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNoRefs</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>4715d279f340909d1aa34514562bb1b0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>dynamicObj</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>fd61fe5a2cb169e5258e9413a7590f34</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>increment</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>6203b5c7c6abb05b2f29c8867957ed91</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>decrement</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>60c877566273852f57db0c287e8e20e9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void *</type>
+      <name>operator new</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>35338ac3a826d0b9932787918adb92f6</anchor>
+      <arglist>(size_t t)</arglist>
+    </member>
+    <member kind="function">
+      <type>void *</type>
+      <name>operator new</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>63c4e34f17f25e7ba5197e81449d39e4</anchor>
+      <arglist>(size_t t, int, const char *file, int line)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator delete</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>93674a6e3b006910a7622fb342963c93</anchor>
+      <arglist>(void *v)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>refcount</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>afccc3f78cf1734743a9c0a4c85e731d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>char</type>
+      <name>dynamic_object</name>
+      <anchorfile>classHandleId.html</anchorfile>
+      <anchor>6f50f94d066f1e7ac940446a4a57040e</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>hed</name>
+    <filename>namespacehed.html</filename>
+    <class kind="class">hed::Node</class>
+    <class kind="class">hed::Edge</class>
+    <class kind="class">hed::Triangulation</class>
+    <class kind="class">hed::Dart</class>
+    <class kind="struct">hed::TTLtraits</class>
+  </compound>
+  <compound kind="class">
+    <name>hed::Node</name>
+    <filename>classhed_1_1Node.html</filename>
+    <base virtualness="virtual">HandleId</base>
+    <member kind="function">
+      <type></type>
+      <name>Node</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>12967fb66dbbfb30869ce45216ee12e8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Node</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>d829f17633a0b6cf4dda8f73d4f13358</anchor>
+      <arglist>(double x, double y, double z=0.0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Node</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>44bd6321beeb49833957f79bc36832d3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>ecf4e4b054c363b753812c28f5c00a21</anchor>
+      <arglist>(double x, double y, double z)</arglist>
+    </member>
+    <member kind="function">
+      <type>const double &amp;</type>
+      <name>x</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>a6943d021752154c5c735183e13270b8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const double &amp;</type>
+      <name>y</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>df7d4625b6fe5019049f5bd6002e210f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const double &amp;</type>
+      <name>z</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>84231e3c8a933d4bbacaccb73b9c388b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const int &amp;</type>
+      <name>id</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>c3c2deee2bd80f0db37a297abb68367f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFlag</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>43d9a3a9079143034b370be7551d1492</anchor>
+      <arglist>(bool flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>const bool &amp;</type>
+      <name>getFlag</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>fe66a2da8585c8dc2809be8ff24e112a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>x_</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>c30b402293df1a60aa5f146cd7030d4b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>y_</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>e2990c888fe066d6da44a342212e684f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>z_</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>1cb1f5d49e89eac1d49c506c98930309</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>id_</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>fcfcc69815b46bac35b20b7b60176493</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>flag_</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>3e7cb77ba6318994cbd06ac99924ab40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static int</type>
+      <name>id_count</name>
+      <anchorfile>classhed_1_1Node.html</anchorfile>
+      <anchor>2ae91cf5f49cca1728f0d4481fb3d995</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>hed::Edge</name>
+    <filename>classhed_1_1Edge.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Edge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>fcf345e2e15a83e18dbf14dd2eaecad7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Edge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>5fc895fb958290c3ad807139824de291</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSourceNode</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>4583f7d0e199c30e574c14b66f4ba539</anchor>
+      <arglist>(Node *node)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNextEdgeInFace</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>63e9f4ae2705fa6d52f2734e7635c053</anchor>
+      <arglist>(Edge *edge)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTwinEdge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>7505edb3562f36e6d08082b00f69d7b5</anchor>
+      <arglist>(Edge *edge)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAsLeadingEdge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>c2a34c4cc6d002696a73d6e814a11cb2</anchor>
+      <arglist>(bool val=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isLeadingEdge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>db6f65bebe5c9d8a7854bcb33d597c1c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setConstrained</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>3ffa453b77c2d6f8e01c3c673c2aca36</anchor>
+      <arglist>(bool val=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isConstrained</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>c51be48324941d03ec571d3ba01b0147</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>getTwinEdge</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>d6612a66e5862f7f8f861627cdfb638f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>getNextEdgeInFace</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>7668d0bd584d69e712990207517b762c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>getSourceNode</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>156eabe70e853a905bfb2e9a511a48d1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>getTargetNode</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>9d7d33ee335595bae685ae4a1428a484</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Handle&lt; Node &gt;</type>
+      <name>sourceNode_</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>4beb638539be291b5bbff47640b38f69</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Edge *</type>
+      <name>twinEdge_</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>98c7f4b8f600d7bc9b68bba82b757d86</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Edge *</type>
+      <name>nextEdgeInFace_</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>8087ba0d8913e648d5062a6d54fac2f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>hed::Edge::@0</type>
+      <name>flags_</name>
+      <anchorfile>classhed_1_1Edge.html</anchorfile>
+      <anchor>97d85bda4e679b0900d6ddb7cbcf8545</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned char</type>
+      <name>isLeadingEdge_</name>
+      <anchorfile>structhed_1_1Edge_1_1@0.html</anchorfile>
+      <anchor>de41f64cc126810ce53c6b16439b196e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned char</type>
+      <name>isConstrained_</name>
+      <anchorfile>structhed_1_1Edge_1_1@0.html</anchorfile>
+      <anchor>b78a4c66c39fd585db227de0515d716c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>hed::Triangulation</name>
+    <filename>classhed_1_1Triangulation.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Triangulation</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>66c7768aa1fb45e26e2ecdaf3c61c73e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Triangulation</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>3ca85712664a867caa4f5ce945890f78</anchor>
+      <arglist>(const Triangulation &amp;tr)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Triangulation</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>1a66db896d007b1a57cc2ffd0b3c3b6a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>createDelaunay</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>c90516cf47895019d521b0a377ced6f2</anchor>
+      <arglist>(vector&lt; Node * &gt;::iterator first, vector&lt; Node * &gt;::iterator last)</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>initTwoEnclosingTriangles</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>1de267840b2fcb8f65e97ed95cd30405</anchor>
+      <arglist>(vector&lt; Node * &gt;::iterator first, vector&lt; Node * &gt;::iterator last)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>swapEdge</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>74cbc329d1f7dfac664d6a821d491f31</anchor>
+      <arglist>(Edge &amp;diagonal)</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>splitTriangle</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>720e4b0e8ec20650bef7537b5b5606c6</anchor>
+      <arglist>(Edge &amp;edge, Node &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeTriangle</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>eff0c075bc2a4e5b33fa03e3406ce2ed</anchor>
+      <arglist>(Edge &amp;edge)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reverse_splitTriangle</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>064a6ae468a82186a66cb076eedd575e</anchor>
+      <arglist>(Edge &amp;edge)</arglist>
+    </member>
+    <member kind="function">
+      <type>Dart</type>
+      <name>createDart</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>e6f30af09e8be13c3d21eef7b42c8e99</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const list&lt; Edge * &gt; &amp;</type>
+      <name>getLeadingEdges</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>10abc264dc32ff381caaa8868ce8a6a0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>noTriangles</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>379b6b9ef7106ef34849dedbf8358a92</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>list&lt; Edge * &gt; *</type>
+      <name>getEdges</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>ce08a2b3a37aff284a75163f905665da</anchor>
+      <arglist>(bool skip_boundary_edges=false) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>flagNodes</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>dbaa6a275ab1911f2c3a4e33266b9ec6</anchor>
+      <arglist>(bool flag) const</arglist>
+    </member>
+    <member kind="function">
+      <type>list&lt; Node * &gt; *</type>
+      <name>getNodes</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>bf56ec1d0e867d29124a17200790f3ca</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>optimizeDelaunay</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>c416bb53882ddb732c27ba2a9fecdb63</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>checkDelaunay</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>a2d7e1b02c80f6a0554ac67339b3eefb</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>getInteriorNode</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>acd31e6fc9fa63f9c43ed9b0c7859043</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>getBoundaryEdge</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>a20e30fd21646c0c5bcd183934cbb429</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>printEdges</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>5a58d2f43d7b6caa665923ae2b7fa8aa</anchor>
+      <arglist>(ofstream &amp;os) const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>addLeadingEdge</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>431ff0642c094a073ac78b45dd83c416</anchor>
+      <arglist>(Edge *edge)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>removeLeadingEdgeFromList</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>0dca1788bdf9f99b9a0707827cb2edd6</anchor>
+      <arglist>(Edge *leadingEdge)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>cleanAll</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>6880897ae6a171379671880f76bee1fa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>list&lt; Edge * &gt;</type>
+      <name>leadingEdges_</name>
+      <anchorfile>classhed_1_1Triangulation.html</anchorfile>
+      <anchor>36ac06b34d61da338e01d448ea588e40</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>hed::Dart</name>
+    <filename>classhed_1_1Dart.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Dart</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>141548d2908ef5847fd81370d57c07a0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Dart</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>40d2832ae9a9d61a1cc16c9b171a2d14</anchor>
+      <arglist>(Edge *edge, bool dir=true)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Dart</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>75fe6236394e8e039a1b3ad44582bf4f</anchor>
+      <arglist>(const Dart &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Dart</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>10f0f2b42173bda49c781fe56f1c0a8a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Dart &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>35ab1ebaa3eaef59d566d8f6a6106fd6</anchor>
+      <arglist>(const Dart &amp;dart)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>0c9d2bf5bfa9ed8378281dba3c728e5e</anchor>
+      <arglist>(const Dart &amp;dart) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>2d4e82f8d75c73e0485ba38f94e49a49</anchor>
+      <arglist>(const Dart &amp;dart) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Dart &amp;</type>
+      <name>alpha0</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>abce4f3568d0729332d583c4e130d815</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Dart &amp;</type>
+      <name>alpha1</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>18a7132ba7a19cd64a9614785db0f8bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Dart &amp;</type>
+      <name>alpha2</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>07596e714ce02057c6934ffab585458c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>5d99a7eeb15b6099d66d69e6d38cdf08</anchor>
+      <arglist>(Edge *edge, bool dir=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>x</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>061fc28758c9a5e4f0de80375f2d16c6</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>y</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>77758ef851ebe6b990aaf7d5d85123e1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCounterClockWise</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>ac632bbb4e0529f8e43a043a8c6bd645</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>getNode</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>d29ef77764d91291b9363e428a04cca7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>getOppositeNode</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>e95f1945dcb6cd06959846be0ef72a1c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Edge *</type>
+      <name>getEdge</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>8ced55d938951516455f7706858bfcdf</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Edge *</type>
+      <name>edge_</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>3c6421abf1e9378af432a1aa089da996</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>dir_</name>
+      <anchorfile>classhed_1_1Dart.html</anchorfile>
+      <anchor>83ca1cf5a6a558ee6efa87ec10806a54</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>hed::TTLtraits</name>
+    <filename>structhed_1_1TTLtraits.html</filename>
+    <member kind="typedef">
+      <type>double</type>
+      <name>real_type</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>106cb14e7c6eedbd6be052303fa0afc5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>scalarProduct2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>17993a770acea1213bde7ef2ebed5234</anchor>
+      <arglist>(const Dart &amp;v1, const Dart &amp;v2)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>scalarProduct2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>43b8b455bb30d08a6ccaf468cc650a2c</anchor>
+      <arglist>(const Dart &amp;v, const Node &amp;p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>crossProduct2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>5531879b378f97fe2b6b12e7a692bcb3</anchor>
+      <arglist>(const Dart &amp;v1, const Dart &amp;v2)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>crossProduct2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>fcb1e5a17b86667bb7dbc15d7f92c7fe</anchor>
+      <arglist>(const Dart &amp;v, const Node &amp;p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>orient2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>ea241c2ba424c3c802fc0c54d6c74a0a</anchor>
+      <arglist>(const Dart &amp;n1, const Dart &amp;n2, const Node &amp;p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static real_type</type>
+      <name>orient2d</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>bc0d0836a4f1586886a2111e8026efaf</anchor>
+      <arglist>(const Dart &amp;n1, const Dart &amp;n2, const Dart &amp;p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>swapEdge</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>b90cf64bafd25ff741c1bcd993c07273</anchor>
+      <arglist>(Dart &amp;dart)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>splitTriangle</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>30c22ae7837e750566956fd9c4a746b3</anchor>
+      <arglist>(Dart &amp;dart, Node &amp;point)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>reverse_splitTriangle</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>a587ae53ef0ed811367696ffbd7b6b07</anchor>
+      <arglist>(Dart &amp;dart)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>removeBoundaryTriangle</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>ffc92413f24150dc941fd0a7323aa479</anchor>
+      <arglist>(Dart &amp;d)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static Triangulation *</type>
+      <name>triang_</name>
+      <anchorfile>structhed_1_1TTLtraits.html</anchorfile>
+      <anchor>c0f4bea9cce83d96c97523f4f6be72df</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+</tagfile>
