@@ -40,6 +40,17 @@ ADD_LIBRARY(ttl ${ttl_SRCS})
 TARGET_LINK_LIBRARIES(ttl ${DEPLIBS})
 
 
+# Set various compiler flags
+
+IF(NOT WIN32)
+  # Set warning level to '-Wall' on Linux
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+ELSE(NOT WIN32)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP8
+  -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_WARNINGS")
+ENDIF(NOT WIN32)
+
+
 # Apps, examples, tests, ...?
 
 FILE(GLOB_RECURSE ttl_EXAMPLES examples/*.C examples/*.cpp)
@@ -64,7 +75,7 @@ ADD_CUSTOM_COMMAND(
 IF(WIN32)
   # Windows
   SET(CMAKE_INSTALL_PREFIX CACHE INTERNAL "")
-  SET(ttl_INSTALL_PREFIX "C:/Program Files (x86)/TTL"
+  SET(ttl_INSTALL_PREFIX "$ENV{PROGRAMFILES}/TTL"
     CACHE PATH "Path to install TTL")
   # lib
   INSTALL(TARGETS ttl DESTINATION ${ttl_INSTALL_PREFIX}/lib)
@@ -85,3 +96,9 @@ ELSE(WIN32)
     PATTERN ".svn" EXCLUDE
     )
 ENDIF(WIN32)
+
+
+# CPack stuff
+SET(CPACK_SOURCE_PACKAGE_FILE_NAME "TTL-1.1.0")
+SET(CPACK_SOURCE_IGNORE_FILES "/CVS/;/\\.svn/;\\.swp$;\\.#;/#;.*~")
+INCLUDE(CPack)
