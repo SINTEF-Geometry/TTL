@@ -4,7 +4,7 @@
 //
 // Created: March 1 2001
 //
-// Author: Øyvind Hjelle <oyvind.hjelle@math.sintef.no>
+// Author: ï¿½yvind Hjelle <oyvind.hjelle@math.sintef.no>
 //
 // Revision: $Id: HeTriang.cpp,v 1.3 2007/09/19 12:51:16 oyvindhj Exp $
 //
@@ -162,8 +162,9 @@ void Triangulation::createDelaunay(vector<Node*>::iterator first,
   Dart d_iter = dc;
   
   vector<Node*>::iterator it;
+  bool status;
   for (it = first; it != last; ++it) {
-    bool status = ttl::insertNode<TTLtraits>(d_iter, **it);
+      status = ttl::insertNode<TTLtraits>(d_iter, **it);
   }
   
   // In general (e.g. for the triangle based data structure), the initial dart
@@ -436,9 +437,10 @@ Edge* Triangulation::splitTriangle(Edge& edge, Node& point) {
   // Assumes the half edge is located in the triangle
   // Returns a half edge with source node as the new node
   
-  double x = point.x();
-  double y = point.y();
-  double z = point.z();
+    double x, y, z;
+    x = point.x();
+    y = point.y();
+    z = point.z();
   
   // e#_n are new edges
   // e# are existing edges
@@ -577,18 +579,18 @@ void Triangulation::swapEdge(Edge& diagonal) {
 }
 
 
-//--------------------------------------------------------------------------------------------------
-static void printEdge(const Dart& dart, ostream& ofile) {
-  
-  Dart d0 = dart;
-  d0.alpha0();
-  
-  ofile << dart.x() << " " << dart.y() << endl;
-  ofile << d0.x() << " " << d0.y() << endl;
-}
+////--------------------------------------------------------------------------
+//static void printEdge(const Dart& dart, ostream& ofile) {
+//
+//  Dart d0 = dart;
+//  d0.alpha0();
+//
+//  ofile << dart.x() << " " << dart.y() << endl;
+//  ofile << d0.x() << " " << d0.y() << endl;
+//}
 
 
-//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 bool Triangulation::checkDelaunay() const {
   
   // ???? outputs !!!!

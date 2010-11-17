@@ -4,7 +4,7 @@
 //
 // Created: Sep 08 2000
 //
-// Author: Øyvind Hjelle <oyvind.hjelle@math.sintef.no>
+// Author: ï¿½yvind Hjelle <oyvind.hjelle@math.sintef.no>
 //
 // Revision: $Id: ttl.h,v 1.5 2007/09/19 13:00:57 oyvindhj Exp $
 //
@@ -96,7 +96,7 @@ using namespace std;
 *   \ref ttl_util and \ref api
 *
 *   \author 
-*   Øyvind Hjelle, oyvindhj@ifi.uio.no
+*   ï¿½yvind Hjelle, oyvindhj@ifi.uio.no
 */
 
 
@@ -1357,7 +1357,8 @@ namespace ttl {
     list<DartType> blist;
     ttl::getBoundary(dart, blist);
     
-    int no = blist.size();
+    int no;
+    no = blist.size();
     typename list<DartType>::const_iterator bit = blist.begin();
     DartType d1 = *bit;
     ++bit;
@@ -1586,19 +1587,19 @@ namespace ttl {
   }
 
 
-  //------------------------------------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   //
   //        x
-  //      /   \ 
+  //"     /   \                                                           "
   //     /  |  \      Darts:
   //oe2 /   |   \     oe2 = oppEdge2
-  //   x....|.... x
-  //    \  d|  d /    d   = diagonal (input and output)
-  //     \  |   /     
-  //   oe1 \   /      oe1 = oppEdge1
+  //   x....|....x
+  //    \  d|  d/     d   = diagonal (input and output)
+  //     \  |  /
+  //  oe1 \   /       oe1 = oppEdge1
   //        x
   //
-  //------------------------------------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   /** Recursively swaps edges in the triangulation according to the \e Delaunay criterion.
   *   
   *   \param diagonal 
