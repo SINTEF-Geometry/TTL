@@ -1,3 +1,6 @@
+#ifndef _MAINPAGE_HED_H
+#define _MAINPAGE_HED_H
+
 //===========================================================================
 //
 //  Main page for Half-Edge documentation
@@ -46,3 +49,5 @@ Consult the file \ref hesimplest "main.cpp" for a program using TTL and
 the half-edge data structure.
 
 */
+
+#endif // _MAINPAGE_HED_H

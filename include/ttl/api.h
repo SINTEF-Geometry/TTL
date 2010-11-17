@@ -1,3 +1,6 @@
+#ifndef _API_H
+#define _API_H
+
 //===========================================================================
 //
 //  Application Programming Interface to TTL (API)
@@ -179,3 +182,5 @@ for running incremental Delaunay triangulation and removing nodes in
 a triangulation.
 
 */
+
+# endif // _API_H

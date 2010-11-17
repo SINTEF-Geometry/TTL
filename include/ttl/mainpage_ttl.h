@@ -1,3 +1,6 @@
+#ifndef _MAINPAGE_TTL_H
+#define _MAINPAGE_TTL_H
+
 //===========================================================================
 //
 //  Main page for TTL documentation
@@ -70,13 +73,13 @@ data structures available.
 
 The generic programming philosophy of TTL is published as one of the chapters the book:\n
 <a href="http://www.springer.com/east/home/math/cse?SGWID=5-10045-22-173660199-0">
-Øyvind Hjelle and Morten Dæhlen.
+ï¿½yvind Hjelle and Morten Dï¿½hlen.
 <em>Triangulations and Applications.</em>
 Springer-Verlag, 2006. (ISBN: 3-540-33260-X) 
 </a> 
 
 See also:<br>
-<EM>Ø. Hjelle. A Triangulation Template Library (TTL): Generic Design of Triangulation Software.
+<EM>ï¿½. Hjelle. A Triangulation Template Library (TTL): Generic Design of Triangulation Software.
 Technical Report STF42 A00015, SINTEF 2000.</EM>\n
 <a href="http://www.sintef.no/upload/IKT/9011/geometri/TTL/TTLreport.pdf">Full report (344 K, pdf)</a>
 
@@ -98,3 +101,5 @@ TTL with the the half-edge data structure and its documentation, together with v
 examples and demos, can be downloaded from the <a href="http://www.sintef.no/Projectweb/Geometry-Toolkits/Downloads">downloads page</a>.
 
 */
+
+#endif // _MAINPAGE_TTL_H
