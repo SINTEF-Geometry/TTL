@@ -17,6 +17,10 @@ IF(EXTEND_CMAKE_MODULE_PATH)
     "C:/cmake/Modules")
 ENDIF(EXTEND_CMAKE_MODULE_PATH)
 
+SET(Boost_ADDITIONAL_VERSIONS "1.42" "1.42.0" 
+			      "1.43" "1.43.0" 
+			      "1.44" "1.44.0"
+			      "1.47" "1.47.0")
 FIND_PACKAGE(Boost REQUIRED)
 
 # Include directories
