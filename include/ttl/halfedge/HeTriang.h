@@ -225,14 +225,14 @@ public:
     ~Triangulation() { cleanAll(); }
     
     /// Creates a Delaunay triangulation from a set of points
-    void createDelaunay(vector<Node*>::iterator first,
-                        vector<Node*>::iterator last);
+    void createDelaunay(std::vector<Node*>::iterator first,
+                        std::vector<Node*>::iterator last);
 
     /// Creates an initial Delaunay triangulation from two enclosing triangles
     //  When using rectangular boundary - loop through all points and expand.
     //  (Called from createDelaunay(...) when starting)
-    Edge* initTwoEnclosingTriangles(vector<Node*>::iterator first,
-                                    vector<Node*>::iterator last);
+    Edge* initTwoEnclosingTriangles(std::vector<Node*>::iterator first,
+                                    std::vector<Node*>::iterator last);
 
 
     // These two functions are required by TTL for Delaunay triangulation

@@ -39,7 +39,7 @@
 #endif
 
 
-using namespace std;
+//using namespace std;
 
 
 // Next on TOPOLOGY:
@@ -1056,7 +1056,7 @@ namespace ttl {
 
   // Private/Hidden function
   template <class DartType>
-    void getNeighborNodes(const DartType& dart, list<DartType>& node_list, bool& boundary) {
+    void getNeighborNodes(const DartType& dart, std::list<DartType>& node_list, bool& boundary) {
     
     DartType dart_iter(dart);
     

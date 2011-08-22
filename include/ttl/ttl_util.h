@@ -38,7 +38,7 @@
 #endif
 
 
-using namespace std;
+//using namespace std;
 
 
 /** \brief Utilities
@@ -262,7 +262,7 @@ namespace ttl_util {
   *    is the actual point type.
   */
   template <class PointType>
-    vector<PointType*>* createRandomData(int noPoints, int seed=1) {
+    std::vector<PointType*>* createRandomData(int noPoints, int seed=1) {
     
 #ifdef _MSC_VER
     srand(seed);
@@ -271,8 +271,8 @@ namespace ttl_util {
 #endif
     
     double x, y;
-    vector<PointType*>* points = new vector<PointType*>(noPoints);
-    typename vector<PointType*>::iterator it;
+    std::vector<PointType*>* points = new std::vector<PointType*>(noPoints);
+    typename std::vector<PointType*>::iterator it;
     for (it = points->begin(); it != points->end(); ++it) {
 
 #ifdef _MSC_VER

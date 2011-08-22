@@ -39,7 +39,7 @@
 #endif
 
 
-using namespace std;
+//using namespace std;
 
 /** \brief Constrained Delaunay triangulation
 *
@@ -380,7 +380,7 @@ namespace ttl_constr {
   *   ttl::isTheConstraint
   */
   template <class TraitsType, class DartType>
-    void transformToConstraint(DartType& dstart, DartType& dend, list<DartType>& elist) {
+    void transformToConstraint(DartType& dstart, DartType& dend, std::list<DartType>& elist) {
     
     typename list<DartType>::iterator it, used;
     
