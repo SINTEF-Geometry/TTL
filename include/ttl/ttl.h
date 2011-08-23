@@ -38,8 +38,7 @@
   }
 #endif
 
-
-//using namespace std;
+  using std::list;
 
 
 // Next on TOPOLOGY:
