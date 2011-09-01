@@ -1357,7 +1357,7 @@ namespace ttl {
     ttl::getBoundary(dart, blist);
     
     int no;
-    no = blist.size();
+    no = (int)blist.size();
     typename list<DartType>::const_iterator bit = blist.begin();
     DartType d1 = *bit;
     ++bit;

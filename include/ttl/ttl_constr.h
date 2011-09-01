@@ -390,7 +390,7 @@ namespace ttl_constr {
     // So, we need some look-ahead strategies for dstart and dend and change these
     // after a swap if necessary.
     
-    int dartsInList = elist.size();
+    int dartsInList = (int)elist.size();
     if (dartsInList == 0)
       return;
 

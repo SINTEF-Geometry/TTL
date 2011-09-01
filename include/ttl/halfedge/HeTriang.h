@@ -260,7 +260,7 @@ public:
     const list<Edge*>& getLeadingEdges() const { return leadingEdges_; }
 
     /// Returns the number of triangles
-    int noTriangles() const { return leadingEdges_.size(); }
+      int noTriangles() const { return (int)leadingEdges_.size(); }
     
     /// Returns a list of half-edges (one half-edge for each arc)
     list<Edge*>* getEdges(bool skip_boundary_edges = false) const;
