@@ -142,14 +142,14 @@ public:
     Edge*        nextEdgeInFace_;
 
     struct {
-      unsigned char isLeadingEdge_ : 1;
-      unsigned char isConstrained_ : 1;
+      bool isLeadingEdge_;
+      bool isConstrained_;
     } flags_;
 
   public:
     /// Constructor
     Edge() { sourceNode_ = NULL; twinEdge_ = NULL; nextEdgeInFace_ = NULL; 
-      flags_.isLeadingEdge_ = 0; flags_.isConstrained_ = 0; }
+      flags_.isLeadingEdge_ = false; flags_.isConstrained_ = false; }
 
     /// Destructor
     ~Edge() { if(twinEdge_) twinEdge_->setTwinEdge(NULL); }
@@ -164,17 +164,17 @@ public:
     void setTwinEdge(Edge* edge) { twinEdge_ = edge; }
 
     /// Sets the edge as a leading edge
-    void setAsLeadingEdge(bool val=true) { flags_.isLeadingEdge_ = (val == true ? 1 : 0); }
+    void setAsLeadingEdge(bool val=true) { flags_.isLeadingEdge_ = val; }
 
     /// Checks if an edge is a leading edge
-    bool isLeadingEdge() const { return flags_.isLeadingEdge_ == 1 ? true : false; }
+    bool isLeadingEdge() const { return flags_.isLeadingEdge_; }
 
     /// Sets the edge as a constrained edge
-   void setConstrained(bool val=true) { unsigned char cstr = (val == true ? 1 : 0); 
-      flags_.isConstrained_ = cstr; if (twinEdge_) twinEdge_->flags_.isConstrained_ = cstr; }
+      void setConstrained(bool val=true) { flags_.isConstrained_ = val;
+      if (twinEdge_) twinEdge_->flags_.isConstrained_ = val; }
 
     /// Checks if an edge is constrained
-    bool isConstrained() const { return flags_.isConstrained_ == 1 ? true : false; }
+      bool isConstrained() const { return flags_.isConstrained_; }
 
     /// Returns the twin edge
     Edge* getTwinEdge() const { return twinEdge_; };
