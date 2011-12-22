@@ -41,7 +41,7 @@
 #include <ttl/utils/Handle.h>
 
 
-using namespace std;
+// using namespace std;
 
 //--------------------------------------------------------------------------------------------------
 // The half-edge data structure
@@ -217,7 +217,7 @@ public:
     
     /// Copy constructor
     Triangulation(const Triangulation& tr) { 
-      cout << "Triangulation: Copy constructor not present - EXIT."; 
+	std::cout << "Triangulation: Copy constructor not present - EXIT."; 
       exit(-1);
     }
 
@@ -286,7 +286,7 @@ public:
     Edge* getBoundaryEdge() const;
 
     /// Print edges for plotting with, e.g., gnuplot
-    void printEdges(ofstream& os) const;
+      void printEdges(std::ofstream& os) const;
 
   }; // End of class Triangulation
 
