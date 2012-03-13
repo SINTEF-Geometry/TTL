@@ -3,21 +3,6 @@ PROJECT(ttl)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 
-# Find modules
-
-# First extend CMake module path
-OPTION(EXTEND_CMAKE_MODULE_PATH 
-  "Extend the CMAKE_MODULE_PATH variable with user directories?" ON)
-IF(EXTEND_CMAKE_MODULE_PATH)
-  SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} 
-    ${CMAKE_HOME_DIRECTORY}/cmake/Modules
-    ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules
-    "./cmake/Modules"
-    "~/cmake/Modules"
-    "C:/cmake/Modules")
-ENDIF(EXTEND_CMAKE_MODULE_PATH)
-
-
 # Include directories
 
 INCLUDE_DIRECTORIES(
@@ -42,7 +27,7 @@ TARGET_LINK_LIBRARIES(ttl ${DEPLIBS})
 
 IF(NOT WIN32)
   # Set warning level to '-Wall' on Linux
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x -fPIC")
 ELSE(NOT WIN32)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP8
   -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_WARNINGS")

@@ -437,10 +437,10 @@ Edge* Triangulation::splitTriangle(Edge& edge, Node& point) {
   // Assumes the half edge is located in the triangle
   // Returns a half edge with source node as the new node
   
-    double x, y, z;
-    x = point.x();
-    y = point.y();
-    z = point.z();
+//    double x, y, z;
+//    x = point.x();
+//    y = point.y();
+//    z = point.z();
   
   // e#_n are new edges
   // e# are existing edges
