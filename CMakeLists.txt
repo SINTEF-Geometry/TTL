@@ -20,7 +20,8 @@ INCLUDE_DIRECTORIES(
 
 FILE(GLOB_RECURSE ttl_SRCS src/*.C src/*.cpp include/*.h)
 ADD_LIBRARY(ttl ${ttl_SRCS})
-TARGET_LINK_LIBRARIES(ttl ${DEPLIBS})
+SET_PROPERTY(TARGET ttl
+  PROPERTY FOLDER "ttl/Libs")
 
 
 # Set various compiler flags
@@ -41,6 +42,8 @@ FOREACH(example ${ttl_EXAMPLES})
   GET_FILENAME_COMPONENT(examplename ${example} NAME_WE)
   ADD_EXECUTABLE(${examplename} ${example})
   TARGET_LINK_LIBRARIES(${examplename} ttl ${DEPLIBS})
+    SET_PROPERTY(TARGET ${examplename}
+      PROPERTY FOLDER "ttl/Examples")
 ENDFOREACH(example)
 
 # Copy data
