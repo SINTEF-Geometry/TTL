@@ -40,6 +40,9 @@
 #ifndef _TTL_H_
 #define _TTL_H_
 
+#ifndef NDEBUG
+#define DEBUG_TTL
+#endif
 
 #include <list>
 #include <iterator>
@@ -47,7 +50,7 @@
 // Debugging
 #ifdef DEBUG_TTL
   static void errorAndExit(char* message) {
-    cout << "\n!!! ERROR: " << message << " !!!\n" << endl;
+    std::cout << "\n!!! ERROR: " << message << " !!!\n" << std::endl;
     exit(-1);
   }
 #endif
@@ -283,7 +286,8 @@ namespace ttl {
     bool found = ttl::locateTriangle<TraitsType>(point, dart);
     if (!found) {
 #ifdef DEBUG_TTL
-      cout << "ERROR: Triangulation::insertNode: NO triangle found. /n";
+        std::cout << "ERROR: Triangulation::insertNode: NO triangle found. par_val_ = (" <<
+            point.x() << ", " << point.y() << ")\n";
 #endif
       return false;
     }
@@ -1381,7 +1385,7 @@ namespace ttl {
       d2 = *bit;
       double crossProd = TraitsType::crossProduct2d(d1, d2);
       if (crossProd < 0.0) {
-        //cout << "!!! Boundary is NOT convex: crossProd = " << crossProd << endl;
+        //std::cout << "!!! Boundary is NOT convex: crossProd = " << crossProd << std::endl;
         convex = false;
         return convex;
       }
@@ -1392,13 +1396,13 @@ namespace ttl {
     d2 = *blist.begin();
     double crossProd = TraitsType::crossProduct2d(d1, d2);
     if (crossProd < 0.0) {
-      //cout << "!!! Boundary is NOT convex: crossProd = " << crossProd << endl;
+      //std::cout << "!!! Boundary is NOT convex: crossProd = " << crossProd << std::endl;
       convex = false;
     }
     
     //if (convex)
-    //  cout << "\n---> Boundary is convex\n" << endl;
-    //cout << endl;
+    //  std::cout << "\n---> Boundary is convex\n" << std::endl;
+    //std::cout << std::endl;
     return convex;
   }
 
