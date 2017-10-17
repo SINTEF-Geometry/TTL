@@ -166,7 +166,7 @@ Edge* Triangulation::initTwoEnclosingTriangles(vector<Node*>::iterator first,
 //--------------------------------------------------------------------------------------------------
 void Triangulation::createDelaunay(vector<Node*>::iterator first,
                                    vector<Node*>::iterator last) {
-  
+
   TTLtraits::triang_ = this;
   cleanAll();
   
