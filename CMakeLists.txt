@@ -44,15 +44,6 @@ FOREACH(example ${ttl_EXAMPLES})
       PROPERTY FOLDER "ttl/Examples")
 ENDFOREACH(example)
 
-# Copy data
-ADD_CUSTOM_COMMAND(
-  TARGET ttl
-  POST_BUILD
-  COMMAND ${CMAKE_COMMAND}
-  ARGS -E copy_directory ${ttl_SOURCE_DIR}/data 
-  ${ttl_BINARY_DIR}/data
-  )
-
 
 # 'install' target
 
