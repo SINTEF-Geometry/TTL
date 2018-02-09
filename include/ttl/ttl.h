@@ -729,19 +729,19 @@ namespace ttl {
     DartType d_iter = dart;
     DartType d0 = d_iter;
     d0.alpha0();
-    if (!TraitsType::orient2d(d_iter, d0, point) >= 0)
+    if (!(TraitsType::orient2d(d_iter, d0, point) >= 0))
       return false;
     
     d_iter.alpha0().alpha1();
     d0 = d_iter;
     d0.alpha0();
-    if (!TraitsType::orient2d(d_iter, d0, point) >= 0)
+    if (!(TraitsType::orient2d(d_iter, d0, point) >= 0))
       return false;
     
     d_iter.alpha0().alpha1();
     d0 = d_iter;
     d0.alpha0();
-    if (!TraitsType::orient2d(d_iter, d0, point) >= 0)
+    if (!(TraitsType::orient2d(d_iter, d0, point) >= 0))
       return false;
     
     return true;
