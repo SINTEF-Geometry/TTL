@@ -1,0 +1,12 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/TTLTargets.cmake")
+
+# Optional: Set TTL_INCLUDE_DIRS and TTL_LIBRARIES for compatibility
+set(TTL_INCLUDE_DIRS "@PACKAGE_INCLUDE_INSTALL_DIR@")
+set(TTL_LIBRARIES ttl)
+
+# If you installed any dependencies that need to be found here, you can do it like this:
+# find_dependency(SomeOtherPackage REQUIRED)
+
+check_required_components(TTL)

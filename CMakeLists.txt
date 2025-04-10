@@ -45,40 +45,65 @@ FOREACH(example ${ttl_EXAMPLES})
 ENDFOREACH(example)
 
 
-# 'install' target
+# 'install' target for TTL
 
+# Set the installation prefix based on platform
 IF(WIN32)
-  # Windows
-  SET(CMAKE_INSTALL_PREFIX CACHE INTERNAL "")
-  SET(ttl_INSTALL_PREFIX "$ENV{PROGRAMFILES}/SINTEF/TTL"
-    CACHE PATH "Path to install TTL")
-  # lib
-  INSTALL(TARGETS ttl DESTINATION ${ttl_INSTALL_PREFIX}/lib)
-  # include
-  INSTALL(DIRECTORY include/ttl
+  SET(ttl_INSTALL_PREFIX "$ENV{PROGRAMFILES}/SINTEF/TTL" CACHE PATH "Path to install TTL")
+ELSE()
+  SET(ttl_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Path to install TTL")
+ENDIF()
+
+# === Install Targets and Export CMake Package ===
+include(CMakePackageConfigHelpers)
+
+# Install the ttl target with export
+install(TARGETS ttl
+    EXPORT TTLTargets
+    ARCHIVE DESTINATION ${ttl_INSTALL_PREFIX}/lib
+    LIBRARY DESTINATION ${ttl_INSTALL_PREFIX}/lib
+    RUNTIME DESTINATION ${ttl_INSTALL_PREFIX}/bin
+    INCLUDES DESTINATION ${ttl_INSTALL_PREFIX}/include
+)
+
+# Install header files
+install(DIRECTORY include/
     DESTINATION ${ttl_INSTALL_PREFIX}/include
     FILES_MATCHING PATTERN "*.h"
     PATTERN ".svn" EXCLUDE
-    )
-ELSE(WIN32)
-  # Linux
-  # lib
-  INSTALL(TARGETS ttl DESTINATION lib COMPONENT ttl)
-  # include
-  INSTALL(DIRECTORY include/ttl
-    COMPONENT ttl-dev
-    DESTINATION include
-    FILES_MATCHING PATTERN "*.h"
-    PATTERN ".svn" EXCLUDE
-    )
-ENDIF(WIN32)
+)
 
+# Export target info to a file
+install(EXPORT TTLTargets
+    FILE TTLTargets.cmake
+    #NAMESPACE TTL::              # Uncomment if using target namespaces
+    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+)
 
-# CPack stuff
+# Generate and install version/config files
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfigVersion.cmake"
+    VERSION 1.2.0
+    COMPATIBILITY SameMajorVersion
+)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/TTLConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfig.cmake"
+    INSTALL_DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfigVersion.cmake"
+    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+)
+
+# CPack setup for packaging if needed
 IF(NOT GoTools_ALL_COMPILE)
-  SET(CPACK_SOURCE_PACKAGE_FILE_NAME "TTL-1.2.0")
+  SET(CPACK_SOURCE_PACKAGE_FILE_NAME "ttl-1.2.0")
   SET(CPACK_SOURCE_IGNORE_FILES "/CVS/;/\\.svn/;\\.swp$;\\.#;/#;.*~")
   INCLUDE(CPack)
-ENDIF(NOT GoTools_ALL_COMPILE)
+ENDIF()
 
 SET(CPACK_STRIP_FILES ${CPACK_STRIP_FILES} libttl.so)
