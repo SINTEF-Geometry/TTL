@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/ttlTargets.cmake")
+
+# Legacy compatibility
+set(ttl_LIBRARIES ttl)
+
+# Optionally set variables
+set(ttl_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include")
