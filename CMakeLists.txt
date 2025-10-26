@@ -49,9 +49,9 @@ ENDFOREACH(example)
 
 # Set the installation prefix based on platform
 IF(WIN32)
-  SET(ttl_INSTALL_PREFIX "$ENV{PROGRAMFILES}/SINTEF/TTL" CACHE PATH "Path to install TTL")
+  SET(ttl_INSTALL_PREFIX "$ENV{PROGRAMFILES}/SINTEF/ttl" CACHE PATH "Path to install ttl")
 ELSE()
-  SET(ttl_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Path to install TTL")
+  SET(ttl_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Path to install ttl")
 ENDIF()
 
 # === Install Targets and Export CMake Package ===
@@ -59,7 +59,7 @@ include(CMakePackageConfigHelpers)
 
 # Install the ttl target with export
 install(TARGETS ttl
-    EXPORT TTLTargets
+    EXPORT ttlTargets
     ARCHIVE DESTINATION ${ttl_INSTALL_PREFIX}/lib
     LIBRARY DESTINATION ${ttl_INSTALL_PREFIX}/lib
     RUNTIME DESTINATION ${ttl_INSTALL_PREFIX}/bin
@@ -74,29 +74,29 @@ install(DIRECTORY include/
 )
 
 # Export target info to a file
-install(EXPORT TTLTargets
-    FILE TTLTargets.cmake
+install(EXPORT ttlTargets
+    FILE ttlTargets.cmake
     #NAMESPACE TTL::              # Uncomment if using target namespaces
-    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/ttl
 )
 
 # Generate and install version/config files
 write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfigVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/ttlConfigVersion.cmake"
     VERSION 1.2.0
     COMPATIBILITY SameMajorVersion
 )
 
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/TTLConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfig.cmake"
-    INSTALL_DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/ttlConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/ttlConfig.cmake"
+    INSTALL_DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/ttl
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/TTLConfigVersion.cmake"
-    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/TTL
+    "${CMAKE_CURRENT_BINARY_DIR}/ttlConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/ttlConfigVersion.cmake"
+    DESTINATION ${ttl_INSTALL_PREFIX}/lib/cmake/ttl
 )
 
 # CPack setup for packaging if needed
