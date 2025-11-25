@@ -57,6 +57,12 @@ ENDIF()
 # === Install Targets and Export CMake Package ===
 include(CMakePackageConfigHelpers)
 
+target_include_directories(ttl INTERFACE
+  $<BUILD_INTERFACE:${ttl_SOURCE_DIR}/include>
+)
+
+export(TARGETS ttl FILE ttlTargets.cmake)
+
 # Install the ttl target with export
 install(TARGETS ttl
     EXPORT ttlTargets
